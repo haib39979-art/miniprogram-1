@@ -1,23 +1,23 @@
 # Daily Herbal (每日草本)
 
-一个基于微信小程序的健康生活助手，提供每日草本知识、黄历宜忌、天气信息及待办事项管理功能。
+A WeChat Mini Program focused on healthy living, providing daily herbal knowledge, traditional almanac advice, weather information, and a simple todo list.
 
-## 功能特性
+## Features
 
-- **每日草本**: 系统每日自动更新草本知识（图片、名称、功效、用法等）。
-- **今日天气**: 实时展示今日天气状况。
-- **黄历宜忌**: 提供每日宜忌指南。
-- **每日事项**: 简单的待办事项管理。
+- **Daily Herbal**: Automatically updates herbal knowledge daily (image, name, benefits, usage, etc.).
+- **Today's Weather**: Real-time display of current weather conditions.
+- **Almanac Advice**: Daily traditional Chinese almanac advice (Yi/Ji).
+- **Daily Todos**: Simple todo list management.
 
-## 开发说明
+## Development
 
-本项目使用微信小程序原生框架开发。
+This project is built using the native WeChat Mini Program framework.
 
-### 目录结构
+### Directory Structure
 
-- `pages/index`: 首页（包含所有核心功能）
-- `assets/`: 静态资源文件
+- `pages/index`: Home page (contains all core features)
+- `assets/`: Static assets
 
-### 版本记录
+### Version History
 
-详见 [Version Roadmap](./version-roadmap.md)
+See [Version Roadmap](./version-roadmap.md) for details.

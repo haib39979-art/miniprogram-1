@@ -1,124 +1,100 @@
-# 养生日历 版本号开发路线图（更细版）
+# Health Calendar Version Roadmap (Detailed)
 
-## 版本号规则（建议）
-- `v0.x.y`：内测/公测阶段，允许快速迭代与调整信息架构
-- `v1.x.y`：正式版阶段，优先稳定、可运营、可回滚
-- `x`（大版本）：目标或信息架构发生变化
-- `y`（小版本）：新增一个可感知功能模块或一组体验增强
-- `z`（补丁）：修复 bug、文案与样式微调、性能优化，不新增功能入口
+## Version Numbering Rules (Proposed)
+- `v0.x.y`: Alpha/Beta stage, allowing rapid iteration and IA adjustments.
+- `v1.x.y`: Stable release stage, prioritizing stability, operations, and rollback capabilities.
+- `x` (Major): Major goal or IA changes.
+- `y` (Minor): New perceptible feature module or a set of experience enhancements.
+- `z` (Patch): Bug fixes, copy/style tweaks, performance optimization, no new feature entry points.
 
-## v0.1.x（可用原型 / 内测）
-总体目标：跑通主流程，体验完整可演示，内容可替换，合规底线到位。
+## v0.1.x (Usable Prototype / Internal Beta)
+**Overall Goal**: Run through the main flow, complete demonstrable experience, replaceable content, compliance baseline in place.
 
-### v0.1.0（骨架跑通）
-- 必做页面：
-  - 今日页：日期（阴阳历占位也可）+ 天气占位 + 内容流占位（至少 6 张卡）
-  - 详情页：药材详情/食谱详情（可共用一个详情模版）
-  - 我的页：入口集合（测评/打卡/隐私/免责声明）
-  - 隐私政策页 + 免责声明页
-- 必做交互：
-  - 今日 → 详情 → 返回（信息不丢）
-  - 从我的进入隐私/免责声明
-- 数据策略：
-  - 全部先用静态数据（JSON/云数据库均可），先保证字段能展示
-- 验收清单：
-  - 首次打开能进入今日页，不白屏
-  - 卡片能点开详情，详情有禁忌与来源字段
+### v0.1.0 (Skeleton)
+- **Must-have Pages**:
+  - **Today Page**: Date (Lunar/Solar placeholder ok) + Weather placeholder + Content Feed placeholder (at least 6 cards).
+  - **Detail Page**: Herb Detail / Recipe Detail (can share one template).
+  - **Me Page**: Entry collection (Quiz / Check-in / Privacy / Disclaimer).
+  - Privacy Policy Page + Disclaimer Page.
+- **Must-have Interactions**:
+  - Today → Detail → Back (No info loss).
+  - Access Privacy/Disclaimer from Me page.
+- **Data Strategy**:
+  - Use static data (JSON/Cloud DB), ensure fields can be displayed.
+- **Acceptance Checklist**:
+  - App opens to Today page without white screen.
+  - Cards can open details, details show Contraindications and Source fields.
 
-### v0.1.1（测评与结果跑通）
-- 必做页面：
-  - 体质测评：8–12 题（每题 4 选 1）
-  - 结果页：输出 1 个体质标签 + 3 条建议（饮食/作息/茶饮）
-- 必做交互：
-  - 测评支持“返回上一题”“中途退出提示”
-  - 完成测评后结果页可再次进入（从我的入口）
-- 文案与视觉：
-  - 测评题目与结果文案长度规范（标题 ≤ 16 字；建议每条 20–40 字）
-- 验收清单：
-  - 测评 3 分钟内能做完
-  - 结果页建议可复制/可分享其一（先做一个）
+### v0.1.1 (Quiz & Result Flow)
+- **Must-have Pages**:
+  - **Constitution Quiz**: 8–12 questions (4 options each).
+  - **Result Page**: Output 1 Constitution Tag + 3 Advice items (Diet/Routine/Tea).
+- **Must-have Interactions**:
+  - Quiz supports "Back to previous", "Exit confirmation".
+  - Result page re-accessible after completion (from Me entry).
+- **Copy & Visuals**:
+  - Quiz question & result copy length standards (Title ≤ 16 chars; Advice 20–40 chars each).
+- **Acceptance Checklist**:
+  - Quiz completable within 3 minutes.
+  - Result advice copyable/shareable (implement one first).
 
-### v0.1.2（打卡与基础留存）
-- 必做页面：
-  - 今日行动：固定 3 项行动清单（可来自“结果页模板”或固定文案）
-  - 打卡记录：7 日列表（日期 + 完成状态）
-- 必做交互：
-  - 一键打卡（当天不可重复计数，重复点有提示）
-  - 7 日列表支持查看当天详情（可复用今日页结构）
-- 验收清单：
-  - 打卡后状态立即可见（按钮/卡片变化）
-  - 7 日列表逻辑正确（不跨天错乱）
+### v0.1.2 (Check-in & Basic Retention)
+- **Must-have Pages**:
+  - **Today's Action**: Fixed 3 items (from "Result Template" or fixed copy).
+  - **Check-in Record**: 7-day list (Date + Status).
+- **Must-have Interactions**:
+  - One-tap Check-in (No repeat count for same day, toast on repeat).
+  - 7-day list supports viewing day details (reuse Today page structure).
+- **Acceptance Checklist**:
+  - Check-in status immediately visible (Button/Card change).
+  - 7-day list logic correct (No cross-day errors).
 
-### v0.1.3（内测质量与状态补齐）
-- 状态补齐（每个关键页都要有）：
-  - Loading、空数据、无网络、定位失败（如使用定位）、通用错误
-- 性能与体验：
-  - 今日页首屏内容优先加载（先信息、后内容流）
-  - 字号/行距可读性检查（不挤、不糊）
-- 内测流程：
-  - 组织 8–10 人走查，收集 10 个问题并排优先级
-- 验收清单：
-  - 主流程无阻塞：今日 → 详情 → 测评 → 结果 → 打卡
-  - 不出现“治疗/治愈/替代就医”等表述
+### v0.1.3 (Beta Quality & State Completion)
+- **State Completion** (For every key page):
+  - Loading, Empty Data, No Network, Location Failed (if used), Generic Error.
+- **Performance & Experience**:
+  - Today page first screen priority loading (Info first, then Feed).
+  - Font size/line height readability check.
+- **Internal Beta Process**:
+  - Walkthrough with 8–10 people, collect 10 issues and prioritize.
+- **Acceptance Checklist**:
+  - Main flow non-blocking: Today → Detail → Quiz → Result → Check-in.
+  - No "Cure/Treatment/Medical Substitute" wording.
 
-## v0.2.x（公测准备 / 内容与个性化增强）
-总体目标：提升推荐可信度与留存，内容首包成体系，数据可衡量。
+## v0.2.x (Public Beta Prep / Content & Personalization Boost)
+**Overall Goal**: Improve recommendation credibility and retention, systematic content package, measurable data.
 
-### v0.2.0（个性化规则 v1 + 内容首包）
-- 个性化规则 v1：
-  - 体质标签 + 季节标签加权推荐
-  - 禁忌优先级最高（命中禁忌直接过滤）
-- 内容首包：
-  - 药材 100–150、食谱 60–90（全部完成校对与来源字段）
-  - 标签体系定稿：季节/体质/地域（每条内容 ≤ 5 个标签）
-- 验收清单：
-  - 推荐结果可解释：至少显示“为什么推荐”（标签或一句话）
-  - 规则表可维护（非写死在页面文案里）
+### v0.2.0 (Personalization Rules v1 + Content First Package)
+- **Personalization Rules v1**:
+  - Constitution Tag + Season Tag weighted recommendation.
+  - Contraindications have highest priority (Filter out if hit).
+- **Content First Package**:
+  - 100–150 Herbs, 60–90 Recipes (Proofreading & Source fields complete).
+  - Tag System finalized: Season/Constitution/Region (≤ 5 tags per item).
+- **Acceptance Checklist**:
+  - Recommendation result explainable: Show "Why recommended" (Tag or one-liner).
+  - Rule table maintainable (Not hardcoded in page copy).
 
-### v0.2.1（内容运营能力：收藏/历史/筛选 三选一）
-- 三选一（优先级从高到低）：
-  - 收藏：详情页可收藏，今日页可看到收藏入口
-  - 历史浏览：自动记录最近浏览 20 条
-  - 筛选：按季节/体质/地域筛选内容
-- 验收清单：
-  - 功能入口不打扰主流程（放在二级入口）
+### v0.2.1 (Content Operations: Favorite/History/Filter)
+- **Choose One** (Priority High to Low):
+  - **Favorite**: Detail page favorite, Today page favorite entry.
+  - **History**: Auto-record last 20 viewed items.
+  - **Filter**: Filter content by Season/Constitution/Region.
+- **Acceptance Checklist**:
+  - Feature entry does not disturb main flow (Secondary entry).
 
-### v0.2.2（数据埋点与指标看板）
-- 必做埋点：
-  - 测评开始/完成、打卡点击/成功、卡片曝光/点击、分享点击
-- 指标目标（先看趋势再定死数）：
-  - 测评完成率、打卡率、卡片点击率、7 日留存
-- 验收清单：
-  - 每个埋点都有清晰触发时机与参数（页面/内容 id）
+### v0.2.2 (Data Tracking & Dashboard)
+- **Must-have Tracking**:
+  - Quiz Start/Complete, Check-in Click/Success, Card Impression/Click, Share Click.
+- **Metric Targets** (Trend first):
+  - Quiz Completion Rate, Check-in Rate, Card CTR, 7-day Retention.
+- **Acceptance Checklist**:
+  - Every event has clear trigger & parameters (Page/Content ID).
 
-### v0.2.3（公测发布候选 RC）
-- 提审前检查：
-  - 隐私政策入口清晰、授权弹窗文案准确
-  - 免责声明固定可达（我的页/设置页）
-  - 敏感词与医疗承诺全局搜索排查
-- 验收清单：
-  - 公测体验稳定，无明显闪退与卡死
-
-## v1.0.x（正式版 / 可持续运营）
-总体目标：稳定、可配置、可运营，能长期迭代而不推翻重做。
-
-### v1.0.0（正式版上线）
-- 运营配置（最小可用）：
-  - 今日页顶部或中部 1 个运营位（节气主题/活动入口）
-  - 主题页模板 1 套（可复用内容卡与列表）
-- 个性化完善：
-  - 用户偏好：忌口/口味/地区（至少支持 1–2 项）
-  - 推荐过滤：偏好能影响推荐结果（可解释）
-- 账户与同步：
-  - 微信登录态下同步：收藏 + 打卡（至少这两项）
-- 验收清单：
-  - 关键数据可回溯（用户更换设备不丢）
-  - 上线后可快速回滚到上个小版本
-
-### v1.0.1（正式版补丁）
-- 修复公测遗留高频问题（崩溃、错位、文案误导、性能）
-- 体验微调（不新增功能入口）
-
-### v1.1.0（运营扩展）
-- 增加 1 套可配置专题模板（如“本周轻养”“立春宜养”）
-- 增加分享素材模板（封面/卡片分享图）
+### v0.2.3 (Public Beta Candidate RC)
+- **Pre-submission Check**:
+  - Privacy Policy entry clear, Auth modal copy accurate.
+  - Disclaimer fixed accessible (Me/Settings).
+  - Global search for sensitive words & medical promises.
+- **Acceptance Checklist**:
+  - Public Beta experience stable, no obvious crashes or freezes.

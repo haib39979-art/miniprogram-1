@@ -1,126 +1,101 @@
-# 养生日历 产品 Roadmap（12 周）
+# Health Calendar Product Roadmap (12 Weeks)
 
-## 目标与范围
-- 目标：面向 18–35 岁用户的“养生日历”小程序，结合阴阳历、天气、药材知识、每日食谱与体质个性化建议
-- 范围：以“今日宜养”为核心信息流，支持基础日历与天气、药材与食谱内容卡片、体质测评与个性化推荐，预留社交与打卡
-- 设计走向：年轻化 + 传统书籍边框视觉语汇，插画为主、少量实物图，偏可爱风
+## Goals and Scope
+- **Goal**: A "Health Calendar" Mini Program for users aged 18–35, combining lunar/solar calendar, weather, herbal knowledge, daily recipes, and personalized constitution advice.
+- **Scope**: Core feed based on "Today's Wellness", supporting basic calendar & weather, herbal & recipe content cards, constitution assessment & personalized recommendations. Reserved space for social & check-in features.
+- **Design Direction**: Youthful + Traditional Book Border Visual Language. Illustrations primarily, limited real photos, leaning towards a cute style.
 
-## MVP 功能
-- 基础：阴阳历日期、天气状况、当日宜忌提示
-- 信息流：药材知识卡、每日食谱推荐（兼顾地域特色）
-- 个性化：体质简测（8–12 题），输出三类建议（食材、作息、茶饮）
-- 运营基础：打卡记录与 7 日趋势、免责声明与健康指引
+## MVP Features
+- **Basic**: Lunar/Solar date, weather conditions, daily Yi/Ji (Dos/Don'ts).
+- **Feed**: Herbal knowledge cards, daily recipe recommendations (considering regional characteristics).
+- **Personalization**: Simple constitution test (8–12 questions), outputting three types of advice (ingredients, routine, tea).
+- **Operation Base**: Check-in records & 7-day trends, disclaimer & health guidelines.
 
-## 12 周可执行任务清单
+## 12-Week Actionable Task List
 
-### 第 1–2 周：研究与定位（交付：定位包）
-- 明确 3 个核心场景：通勤早上 / 午休 / 睡前（每个 1 段话）
-- 竞品拆解 5 个（小红书/小程序/APP）：信息结构、卡片密度、互动方式
-- 内容边界定稿：能说/不说（“疾病/药物”相关一律规避）
-- 交付：用户画像×2、场景×3、需求优先级（P0/P1/P2）、一句话价值主张
+### Weeks 1–2: Research & Positioning (Deliverable: Positioning Package)
+- Define 3 core scenarios: Morning commute / Lunch break / Bedtime (1 paragraph each).
+- Deconstruct 5 competitors (Xiaohongshu/Mini Programs/Apps): Information structure, card density, interaction methods.
+- Finalize content boundaries: What to say / What not to say (avoid "disease/medication" related topics).
+- **Deliverables**: User Personas ×2, Scenarios ×3, Requirement Priorities (P0/P1/P2), One-sentence Value Proposition.
 
-### 第 3 周：信息架构与内容模型（交付：IA + 字段表）
-- 页面：今日、日历、体质测评、推荐结果、打卡/我的
-- 内容模型：
-  - 药材卡：标题/一句话功效/适宜体质/禁忌/季节/食用方式/来源
-  - 食谱卡：标题/食材/做法要点/体质适配/地域标签/注意事项/来源
-- 交付：站点地图、页面跳转图、内容字段表（表格）
+### Week 3: Information Architecture & Content Model (Deliverable: IA + Field Table)
+- **Pages**: Today, Calendar, Constitution Test, Recommendation Results, Check-in/Me.
+- **Content Model**:
+  - **Herbal Card**: Title / One-sentence Benefit / Suitable Constitution / Contraindications / Season / Usage / Source.
+  - **Recipe Card**: Title / Ingredients / Key Steps / Suitable Constitution / Regional Tag / Notes / Source.
+- **Deliverables**: Site Map, Page Flow Diagram, Content Field Table (Spreadsheet).
 
-### 第 4–5 周：线框与关键流程（交付：低保真原型）
-- 今日页“三段式”线框：基础信息（日期+天气）→ 今日建议（3 条）→ 内容流（药材/食谱）
-- 体质测评线框：8–12 题、3 分钟内完成、结果页给“可执行建议”
-- 打卡线框：今日行动清单（3 项）+ 一键打卡 + 7 日趋势
-- 交付：可点击低保真原型（不含视觉）
+### Weeks 4–5: Wireframes & Key Flows (Deliverable: Lo-fi Prototype)
+- "Today" Page "Three-Section" Wireframe: Basic Info (Date+Weather) → Today's Advice (3 items) → Content Feed (Herbal/Recipe).
+- Constitution Test Wireframe: 8–12 questions, complete within 3 minutes, result page gives "actionable advice".
+- Check-in Wireframe: Today's Action List (3 items) + One-tap Check-in + 7-Day Trend.
+- **Deliverables**: Clickable Lo-fi Prototype (No Visuals).
 
-### 第 6 周：视觉与设计系统（交付：UI Kit）
-- 定调：年轻化 + 传统书页边框（控制装饰比例，确保可读）
-- 建立组件：卡片、标签、按钮、弹窗、空状态、加载、顶部信息区
-- 交付：色板/字号/间距规范 + 组件库（可复用）
+### Week 6: Visuals & Design System (Deliverable: UI Kit)
+- **Tone**: Youthful + Traditional Page Border (Control decoration ratio to ensure readability).
+- **Components**: Cards, Tags, Buttons, Modals, Empty States, Loading, Top Info Area.
+- **Deliverables**: Color Palette / Typography / Spacing Guidelines + Component Library (Reusable).
 
-### 第 7 周：高保真 + 可用性测试（交付：迭代清单）
-- 8–10 人走查：能否一眼看懂“今天该做什么”
-- 记录问题：信息层级、文案理解、点击路径
-- 交付：高保真原型 + 问题清单 + 迭代版本
+### Week 7: Hi-fi & Usability Testing (Deliverable: Iteration List)
+- Walkthrough with 8–10 people: Can they understand "What to do today" at a glance?
+- Record issues: Information hierarchy, copy understanding, click paths.
+- **Deliverables**: Hi-fi Prototype + Issue List + Iterated Version.
 
-### 第 8–9 周：内容生产与校对（交付：内容首包）
-- 目标首包：药材 100–150 条、食谱 60–90 条
-- 每条必须含：禁忌/来源/“非医疗建议”提示语
-- 交付：内容表（可导入）+ 文案规范（长度、语气、标签规则）
+### Weeks 8–9: Content Production & Proofreading (Deliverable: First Content Package)
+- **Target First Package**: 100–150 Herbal items, 60–90 Recipes.
+- Each item must contain: Contraindications / Source / "Non-medical Advice" Disclaimer.
+- **Deliverables**: Content Table (Importable) + Copy Guidelines (Length, Tone, Tag Rules).
 
-### 第 10 周：个性化规则与冷启动（交付：规则表 + 结果页）
-- 体质标签（5–7 类）+ 每类 3 条建议模板（饮食/作息/茶饮）
-- 规则优先级：禁忌 > 体质 > 季节 > 偏好
-- 冷启动：未测评给“季节通用建议”，引导测评
-- 交付：规则映射表 + 结果页高保真
+### Week 10: Personalization Rules & Cold Start (Deliverable: Rule Table + Result Page)
+- Constitution Tags (5–7 types) + 3 Advice Templates per type (Diet/Routine/Tea).
+- Rule Priority: Contraindications > Constitution > Season > Preferences.
+- Cold Start: "Seasonal General Advice" for untested users, guide to take the test.
+- **Deliverables**: Rule Mapping Table + Hi-fi Result Page.
 
-### 第 11 周：开发对接与验收（交付：标注包）
-- 输出切图/标注/动效说明（动效节制）
-- 定义埋点：测评完成率、打卡率、卡片点击率、7 日留存
-- 交付：标注包 + 交互说明 + 埋点表
+### Week 11: Development Handoff & Acceptance (Deliverable: Handoff Package)
+- Output Slices / Specs / Animation Guide (Restrained animation).
+- Define Tracking: Test completion rate, Check-in rate, Card click-through rate, 7-day retention.
+- **Deliverables**: Handoff Package + Interaction Guide + Tracking Plan.
 
-### 第 12 周：上架与运营启动（交付：上线包）
-- 完成隐私与免责声明页面
-- 首周运营活动：连续打卡、节气主题页（1 个）
-- 交付：提审材料、首周运营素材（分享卡、封面）
+### Week 12: Launch & Operation Start (Deliverable: Launch Package)
+- Complete Privacy & Disclaimer pages.
+- First Week Campaign: Continuous Check-in, Solar Term Theme Page (1 item).
+- **Deliverables**: Submission Materials, First Week Operation Assets (Share Cards, Cover).
 
-## Figma 文件结构（可直接创建）
-- 00_Cover：项目简介、链接入口、版本号（v0.1/v0.2）
-- 01_Foundations：Colors / Type / Spacing / Grid / Shadows
-- 02_Components：Buttons、Tags、Cards（药材/食谱/行动）、Nav、Modal、Empty、Loading
-- 03_Patterns：今日信息区、内容流布局、测评题样式、结果建议模块、打卡模块
-- 04_Pages_Lofi：今日 / 日历 / 测评 / 结果 / 我的（低保真）
-- 05_Pages_Hifi：同上（高保真）
-- 06_Prototype：主流程连线与备注
-- 07_Content：文案组件、标签体系、示例内容卡
-- 08_Handoff：切图、标注、状态说明、埋点表截图/链接
+## Figma File Structure (Create Directly)
+- **00_Cover**: Project Intro, Links, Version (v0.1/v0.2).
+- **01_Foundations**: Colors / Type / Spacing / Grid / Shadows.
+- **02_Components**: Buttons, Tags, Cards (Herbal/Recipe/Action), Nav, Modal, Empty, Loading.
+- **03_Patterns**: Today Info Area, Feed Layout, Quiz Styles, Result Advice Module, Check-in Module.
+- **04_Pages_Lofi**: Today / Calendar / Quiz / Result / Me (Lo-fi).
+- **05_Pages_Hifi**: Same as above (Hi-fi).
+- **06_Prototype**: Main flow connections & notes.
+- **07_Content**: Copy components, Tag system, Example content cards.
+- **08_Handoff**: Slices, Specs, State descriptions, Tracking table screenshots/links.
 
-命名建议：组件 `C/Card/Herb`、`C/Card/Recipe`、`C/Tag`；页面 `P/Today`、`P/Quiz`、`P/Result`；状态 `State/Empty`、`State/Error`、`State/Loading`
+**Naming Suggestions**: Components `C/Card/Herb`, `C/Card/Recipe`, `C/Tag`; Pages `P/Today`, `P/Quiz`, `P/Result`; States `State/Empty`, `State/Error`, `State/Loading`.
 
-## 内容表模板（用于表格/导入）
-**herb（药材）**  
-id｜name｜one_liner｜benefit｜suitable_constitution｜avoid_people｜season｜how_to_use｜image_type｜source｜risk_note
+## Content Table Template (For Spreadsheet/Import)
+**herb**  
+id | name | one_liner | benefit | suitable_constitution | avoid_people | season | how_to_use | image_type | source | risk_note
 
-**recipe（食谱）**  
-id｜name｜ingredients｜steps_short｜suitable_constitution｜avoid_people｜season｜region_tag｜time_cost｜source｜risk_note
+**recipe**  
+id | name | ingredients | steps_short | suitable_constitution | avoid_people | season | region_tag | time_cost | source | risk_note
 
-**quiz（测评题）**  
-id｜question｜options(A/B/C/D)｜score_mapping｜tag_output
+**quiz**  
+id | question | options(A/B/C/D) | score_mapping | tag_output
 
-**rules（规则）**  
-constitution_tag｜season_tag｜boost_tags｜block_tags｜result_templates(3条)
+**rules**  
+constitution_tag | season_tag | boost_tags | block_tags | result_templates(3 items)
 
-## 交付给开发的一页清单
-- 页面清单 + 路由命名
-- 每页状态：默认/无数据/无网络/加载/错误
-- 组件库列表（必须复用）
-- 内容字段表 + 示例 5 条数据
-- 埋点表（事件名、触发时机、参数）
-- 免责声明与隐私页文案（固定展示位置）
+## Developer Handoff Checklist (One Page)
+- Page List + Route Naming.
+- State per Page: Default / No Data / No Network / Loading / Error.
+- Component List (Must Reuse).
+- Content Field Table + 5 Example Data Entries.
+- Tracking Plan (Event Name, Trigger, Parameters).
+- Disclaimer & Privacy Page Copy (Fixed Display Position).
 
-## 技术与协作建议
-- 技术栈：微信小程序 + 云开发（数据库/存储/云函数）
-- 组件库：优先 TDesign WeChat 或 WeUI
-- 数据结构建议：content_items（type=herb/recipe）、tags（season/body）、user_profile（constitution）、daily_feed
-- 埋点指标：曝光/点击/打卡率/测评完成率/7 日留存；错误与崩溃率
-- 分工：设计与内容为主，配合 1 前端 + 1 后端/云开发
-
-## 上线与增长
-- 首周运营：节气主题周、连续 7 日打卡奖励、好友分享卡片
-- 社交策略：MVP 不做评论，仅保留分享与同城食材标签
-- 分发：小程序关键词与类目，配合公众号图文与视频号
-
-## 隐私与法律
-- 明示“非医疗建议”；涉及“疾病/药物”统一跳至官方科普
-- 收集信息最小化（测评与打卡），允许随时删除；隐私政策与数据托管合规
-
-## MVP 度量指标
-- 当日留存 ≥ 28%，测评完成率 ≥ 55%
-- 药材卡点击率 ≥ 18%，食谱卡点击率 ≥ 22%
-- 连续打卡 7 日达成率 ≥ 12%
-- 用户反馈问题解决时效 ≤ 72 小时
-
-## 工具与学习资源
-- 设计：Figma、LottieFiles（轻动效）、Iconfont
-- 内容：Google Scholar、万方、国家卫健委科普平台
-- 协作：飞书/钉钉任务看板，建立“内容—设计—开发”三列
-
+## Tech & Collab Suggestions
+(Keep concise)
