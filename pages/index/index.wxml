@@ -1,0 +1,133 @@
+<view class="page">
+  <scroll-view class="content" scroll-y>
+    <view class="topbar">
+      <view class="topbar-weather">
+        <text class="topbar-title">今日天气</text>
+        <image class="weather-icon" src="{{weather.iconUrl}}" mode="aspectFit" />
+      </view>
+    </view>
+
+    <view class="hero-card">
+      <view class="hero-actions-left">
+        <button class="icon-btn" bindtap="onToggleFavorite">
+          <text class="icon-text">{{isFavorite ? '♥' : '♡'}}</text>
+        </button>
+      </view>
+      <view class="hero-actions-right">
+        <button class="icon-btn" bindtap="onOpenMore">
+          <text class="icon-text">⋯</text>
+        </button>
+      </view>
+
+      <view class="hero-main">
+        <view class="hero-left">
+          <view class="herb-image-wrap">
+            <view class="herb-image-inner">
+              <image class="herb-image" src="{{herb.imageUrl}}" mode="aspectFit" />
+            </view>
+          </view>
+          <view class="herb-title-row">
+            <text class="herb-title">{{herb.name}}</text>
+            <text class="herb-subtitle">{{herb.alias}}</text>
+          </view>
+        </view>
+
+        <view class="hero-right">
+          <view class="date-row">
+            <text class="date-day">{{date.day}}</text>
+            <text class="date-suffix">/{{date.month}}</text>
+          </view>
+          <text class="lunar-text">{{date.lunar}}</text>
+
+          <view class="yi-ji">
+            <view class="yi-ji-row">
+              <view class="dot dot-yi"></view>
+              <text class="yi-ji-label">宜</text>
+              <text class="yi-ji-items">{{daily.yi}}</text>
+            </view>
+            <view class="yi-ji-row">
+              <view class="dot dot-ji"></view>
+              <text class="yi-ji-label">忌</text>
+              <text class="yi-ji-items">{{daily.ji}}</text>
+            </view>
+          </view>
+
+          <view class="huangli-wrap">
+            <image wx:if="{{huangli.imageUrl}}" class="huangli-image" src="{{huangli.imageUrl}}" mode="aspectFill" />
+            <view wx:else class="huangli-placeholder">
+              <view class="huangli-header">
+                <view class="huangli-dot"></view>
+                <text class="huangli-title">黄历</text>
+              </view>
+              <view class="huangli-lines">
+                <view class="huangli-line"></view>
+                <view class="huangli-line"></view>
+                <view class="huangli-line"></view>
+                <view class="huangli-line short"></view>
+              </view>
+              <view class="huangli-stamp">宜养</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="hero-details">
+        <view class="detail-row">
+          <view class="bullet"></view>
+          <text class="detail-text">{{herb.distribution}}</text>
+        </view>
+        <view class="detail-row">
+          <view class="bullet"></view>
+          <text class="detail-text">{{herb.feature}}</text>
+        </view>
+        <view class="detail-row">
+          <view class="bullet"></view>
+          <text class="detail-text">{{herb.effect}}</text>
+        </view>
+        <view class="detail-row">
+          <view class="bullet"></view>
+          <text class="detail-text">{{herb.usage}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="todos-header">
+      <text class="todos-title">每日事项</text>
+      <button class="add-btn" bindtap="onAddTodo">+</button>
+    </view>
+
+    <view class="todos-empty" wx:if="{{!todos || todos.length === 0}}">
+      <text class="todos-empty-text">今天还没有事项</text>
+    </view>
+    <view class="todos-list" wx:else>
+      <view class="todo-item" wx:for="{{todos}}" wx:key="id">
+        <text class="todo-text">{{item.text}}</text>
+      </view>
+    </view>
+
+    <view class="bottom-spacer"></view>
+  </scroll-view>
+
+  <view class="tabbar">
+    <view class="tab-item tab-active" bindtap="onTapTab" data-key="today">
+      <view class="tab-icon tab-icon-today">
+        <view class="tab-icon-today-dot"></view>
+      </view>
+      <text class="tab-text">今日</text>
+    </view>
+    <view class="tab-item" bindtap="onTapTab" data-key="calendar">
+      <view class="tab-icon tab-icon-calendar">
+        <view class="tab-icon-calendar-top"></view>
+        <view class="tab-icon-calendar-body"></view>
+      </view>
+      <text class="tab-text">日历</text>
+    </view>
+    <view class="tab-item" bindtap="onTapTab" data-key="me">
+      <view class="tab-icon tab-icon-me">
+        <view class="tab-icon-me-head"></view>
+        <view class="tab-icon-me-body"></view>
+      </view>
+      <text class="tab-text">我的</text>
+    </view>
+  </view>
+</view>
