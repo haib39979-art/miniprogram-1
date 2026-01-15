@@ -83,16 +83,17 @@ page {
 }
 
 .hero-left {
-  width: 304rpx;
+  width: 316rpx;
 }
 
 .herb-image-wrap {
-  background: #d8cebe;
+  background: #d9cfbf;
   border-radius: 16rpx;
   overflow: hidden;
   width: 100%;
-  height: 420rpx;
-  position: relative;
+  height: 603rpx;
+  padding: 22rpx 20rpx 18rpx 20rpx;
+  box-sizing: border-box;
 }
 
 .herb-image-inner {
