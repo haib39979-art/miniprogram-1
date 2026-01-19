@@ -1,0 +1,22 @@
+<view class="tabbar">
+  <view class="tab-item {{active === 'calendar' ? 'tab-active' : ''}}" bindtap="onTapTab" data-key="calendar">
+    <view class="tab-icon">
+      <image class="tab-icon-image" src="/assets/tab-calendar{{active === 'calendar' ? '-active' : ''}}.svg" mode="aspectFit" />
+    </view>
+    <text class="tab-text">日历</text>
+  </view>
+  
+  <view class="tab-item {{active === 'recipe' ? 'tab-active' : ''}}" bindtap="onTapTab" data-key="recipe">
+    <view class="tab-icon">
+      <image class="tab-icon-image" src="/assets/tab-recipe{{active === 'recipe' ? '-active' : ''}}.svg" mode="aspectFit" />
+    </view>
+    <text class="tab-text">宜食</text>
+  </view>
+  
+  <view class="tab-item {{active === 'me' ? 'tab-active' : ''}}" bindtap="onTapTab" data-key="me">
+    <view class="tab-icon">
+      <image class="tab-icon-image" src="/assets/tab-me{{active === 'me' ? '-active' : ''}}.svg" mode="aspectFit" />
+    </view>
+    <text class="tab-text">我的</text>
+  </view>
+</view>

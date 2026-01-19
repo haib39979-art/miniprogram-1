@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="input-group">
+    <view class="input-wrapper">
+      <view class="icon-phone">📱</view>
+      <input class="input" type="number" placeholder="请输入手机号" placeholder-class="placeholder" bindinput="onInputPhone" maxlength="11" />
+    </view>
+    
+    <view class="input-wrapper">
+      <input class="input" type="number" placeholder="请输入验证码" placeholder-class="placeholder" bindinput="onInputCode" maxlength="6" />
+      <view class="get-code-btn" bindtap="onGetCode">获取</view>
+    </view>
+  </view>
+
+  <view class="confirm-btn" bindtap="onConfirm">确定</view>
+</view>

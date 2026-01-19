@@ -1,0 +1,58 @@
+<view class="container">
+  <!-- Avatar -->
+  <view class="avatar-section">
+    <image class="avatar" src="/assets/avatar-me.png" mode="aspectFill"></image>
+  </view>
+
+  <!-- Group 1 -->
+  <view class="group">
+    <view class="list-item" bindtap="onTapName">
+      <text class="item-text">名字 : Beau-Temps</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapId">
+      <text class="item-text">id : 3225141371</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapGender">
+      <text class="item-text">性别 : 女</text>
+      <view class="arrow-icon"></view>
+    </view>
+  </view>
+
+  <!-- Group 2 -->
+  <view class="group">
+    <view class="list-item" bindtap="onTapPhone">
+      <text class="item-text">手机号 : 13713535418</text>
+      <view class="arrow-icon"></view>
+    </view>
+  </view>
+
+  <!-- Group 3 -->
+  <view class="group">
+    <view class="list-item" bindtap="onTapBirthday">
+      <text class="item-text">生日 : 2007-08-18</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapRegion">
+      <text class="item-text">地区 : 北京</text>
+      <view class="arrow-icon"></view>
+    </view>
+  </view>
+
+  <!-- Group 4 -->
+  <view class="group">
+    <view class="list-item" bindtap="onTapOccupation">
+      <text class="item-text">职业 : 学生</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapConstitution">
+      <text class="item-text">体质 : 待测试</text>
+      <view class="arrow-icon"></view>
+    </view>
+  </view>
+</view>

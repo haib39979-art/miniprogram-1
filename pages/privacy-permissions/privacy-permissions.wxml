@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="group">
+    <view class="list-item first-item" bindtap="onTapItem" data-item="camera">
+      <text class="item-text">允许相机权限访问</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapItem" data-item="microphone">
+      <text class="item-text">允许麦克风权限访问</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapItem" data-item="photos">
+      <text class="item-text">允许照片权限访问</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item last-item" bindtap="onTapItem" data-item="location">
+      <text class="item-text">允许位置信息权限访问</text>
+      <view class="arrow-icon"></view>
+    </view>
+  </view>
+</view>

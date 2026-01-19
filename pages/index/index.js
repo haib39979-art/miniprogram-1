@@ -65,12 +65,43 @@ Page({
   },
 
   onAddTodo() {
-    wx.showToast({ title: '后续接入新增事项', icon: 'none' })
+    wx.navigateTo({ url: '/pages/new-item/new-item' })
+  },
+
+  onTapWeather() {
+    const url = '/pages/weather-detail/weather-detail'
+    console.log('Navigating to:', url)
+    wx.navigateTo({
+      url: url,
+      fail: (err) => {
+        console.error('Navigation failed (absolute):', err)
+        // Try relative path as fallback
+        wx.navigateTo({
+          url: '../weather-detail/weather-detail',
+          fail: (err2) => {
+             console.error('Navigation failed (relative):', err2)
+             wx.showToast({
+               title: '跳转失败: ' + (err.errMsg || err2.errMsg),
+               icon: 'none',
+               duration: 3000
+             })
+          }
+        })
+      }
+    })
   },
 
   onTapTab(e) {
     const key = e.currentTarget.dataset.key
     if (key === 'today') return
-    wx.showToast({ title: '后续接入页面跳转', icon: 'none' })
+    if (key === 'calendar') {
+      wx.redirectTo({ url: '/pages/calendar/calendar' })
+    } else if (key === 'me') {
+      wx.redirectTo({ url: '/pages/me/me' })
+    }
+  },
+
+  onTapHero() {
+    wx.navigateTo({ url: '/pages/detail/detail' })
   },
 })

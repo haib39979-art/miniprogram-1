@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="header-row">
+    <text class="header-title">已登录的设备 2</text>
+    <view class="manage-tag" bindtap="onManage">处理</view>
+  </view>
+
+  <view class="device-list">
+    <block wx:for="{{devices}}" wx:key="id">
+      <view class="device-item {{index === devices.length - 1 ? 'last-item' : ''}}" bindtap="onTapDevice" data-id="{{item.id}}">
+        <view class="device-icon">📱</view>
+        <view class="device-info">
+          <view class="device-name {{item.isCurrent ? 'current-name' : ''}}">{{item.name}}</view>
+          <view class="device-time">{{item.time}}</view>
+        </view>
+        <view class="arrow-icon"></view>
+      </view>
+      <view class="divider" wx:if="{{index !== devices.length - 1}}"></view>
+    </block>
+  </view>
+</view>

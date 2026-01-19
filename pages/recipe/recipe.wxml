@@ -1,0 +1,46 @@
+<view class="page">
+  <view class="header">
+    <text class="title">今日宜食</text>
+    <view class="date-row">
+      <text class="date-text">{{date.full}}</text>
+      <view class="divider"></view>
+      <text class="date-text">{{date.lunar}}</text>
+    </view>
+  </view>
+
+  <view class="tags-row">
+    <view class="tag" wx:for="{{tags}}" wx:key="*this">{{item}}</view>
+  </view>
+
+  <view class="recipe-card" bindtap="onTapRecipe">
+    <view class="card-image-wrap">
+      <image class="card-image" src="{{recipe.imageUrl}}" mode="aspectFill" />
+    </view>
+    <view class="card-content">
+      <view class="card-header">
+        <text class="card-title">{{recipe.name}}</text>
+        <view class="favorite-icon" catchtap="onToggleFavorite">♡</view>
+      </view>
+      <view class="benefits-list">
+        <view class="benefit-item" wx:for="{{recipe.benefits}}" wx:key="*this">·{{item}}</view>
+      </view>
+      <view class="suitable-row" catchtap="onTapHealthType">
+        <text class="suitable-label">适宜人群：</text>
+        <text class="suitable-val">{{recipe.suitable}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="checkin-section">
+    <view class="checkin-header">
+      <text class="checkin-title">今日打卡</text>
+      <view class="camera-icon" bindtap="onCheckIn">📷</view>
+    </view>
+    <view class="checkin-card {{isCheckedIn ? 'checked' : ''}}">
+      <image wx:if="{{checkInImage}}" src="{{checkInImage}}" mode="aspectFill" class="checkin-image" />
+      <text wx:else class="checkin-text">{{isCheckedIn ? '已完成今日打卡' : '今日未打卡'}}</text>
+    </view>
+  </view>
+
+  <custom-tabbar active="recipe" />
+</view>

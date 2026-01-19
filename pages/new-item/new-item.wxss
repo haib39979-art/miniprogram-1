@@ -1,0 +1,105 @@
+.page {
+  min-height: 100vh;
+  background: #fff; /* Standard white background based on screenshot outer area, actually the screenshot shows white page bg */
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+.section-card {
+  background: #f5efe9; /* Beige background */
+  border-radius: 24rpx;
+  padding: 0 32rpx;
+  margin-bottom: 32rpx;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  padding: 32rpx 0;
+}
+
+.align-top {
+  align-items: flex-start;
+}
+
+.label {
+  font-size: 32rpx;
+  color: #5d4037;
+  width: 120rpx; /* Fixed width for alignment */
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.textarea {
+  flex: 1;
+  font-size: 32rpx;
+  color: #333;
+  min-height: 160rpx;
+}
+
+.divider {
+  height: 1rpx;
+  background: rgba(0,0,0,0.05);
+  width: 100%;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32rpx 0;
+}
+
+.setting-label {
+  font-size: 32rpx;
+  color: #000;
+  font-weight: 500;
+}
+
+.picker-group {
+  background: #e6dace; /* Darker beige for input background */
+  padding: 8rpx 20rpx;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.picker-text {
+  font-size: 26rpx;
+  color: #000;
+  font-weight: 500;
+}
+
+.picker-separator {
+  margin: 0 8rpx;
+  font-size: 26rpx;
+  color: #000;
+}
+
+.time-tag {
+  background: #e6dace;
+  padding: 8rpx 24rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  color: #000;
+  font-weight: 500;
+}
+
+/* Switch styling overrides if possible, otherwise rely on color prop */
+.wx-switch-input{
+  width: 82rpx !important;
+  height: 44rpx !important;
+}
+.wx-switch-input::before{
+  width: 80rpx !important;
+  height: 40rpx !important;
+}
+.wx-switch-input::after{
+  width: 40rpx !important;
+  height: 40rpx !important;
+}

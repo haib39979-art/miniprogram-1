@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="group">
+    <view class="list-item">
+      <text class="item-text">多语言</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item">
+      <text class="item-text">字体大小</text>
+      <view class="arrow-icon"></view>
+    </view>
+  </view>
+
+  <view class="group">
+    <view class="list-item">
+      <text class="item-text">照片与视频</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item">
+      <text class="item-text">横屏模式</text>
+      <switch color="#07C160" style="transform: scale(0.8); margin-right: -10rpx;" />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,36 @@
+<view class="page">
+  <view class="hero-image-wrap">
+    <image class="hero-image" src="{{herb.imageUrl}}" mode="aspectFit" />
+  </view>
+  <view class="content">
+    <view class="header">
+      <text class="title">{{herb.name}}</text>
+      <text class="subtitle">{{herb.alias}}</text>
+    </view>
+    
+    <view class="section">
+      <view class="section-title">简介</view>
+      <text class="section-text">{{herb.intro}}</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">分布</view>
+      <text class="section-text">{{herb.distribution}}</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">特征</view>
+      <text class="section-text">{{herb.feature}}</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">功效</view>
+      <text class="section-text">{{herb.effect}}</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">用法</view>
+      <text class="section-text">{{herb.usage}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,60 @@
+<view class="container">
+  <!-- Header -->
+  <view class="header">
+    <view class="back-btn" bindtap="onBack">
+      <image class="back-icon" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAxMiAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTEgMUwyIDEwTDExIDE5IiBzdHJva2U9IiMzMzMzMzMiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=" />
+    </view>
+    <view class="title-icon">
+       <!-- Humidity Icon -->
+       <image class="title-svg" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTYgNEwyMiAxMEMyNS4zMSAxMy4zMSAyNS4zMSAxOC42OSAyMiAyMkMxOC42OSAyNS4zMSAxMy4zMSAyNS4zMSAxMCAyMkM2LjY5IDE4LjY5IDYuNjkgMTMuMzEgMTAgMTBMMTYgNFoiIHN0cm9rZT0iIzMzMzMzMyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=" />
+       <text>湿度</text>
+    </view>
+    <view class="placeholder"></view>
+  </view>
+
+  <!-- Date Strip -->
+  <scroll-view class="date-scroll" scroll-x="true" enable-flex="true">
+    <view class="date-item {{item.active ? 'active' : ''}}" 
+          wx:for="{{weekDays}}" 
+          wx:key="date"
+          bindtap="onTapDate"
+          data-index="{{index}}">
+      <text class="day-text">{{item.day}}</text>
+      <text class="date-text">{{item.date}}</text>
+    </view>
+  </scroll-view>
+  <view class="full-date">{{currentDate}}</view>
+
+  <view class="divider"></view>
+
+  <!-- Chart (Simulated) -->
+  <view class="chart-section">
+    <view class="chart-title-overlay">
+      <text class="chart-title-text">湿度</text>
+    </view>
+    <view class="chart-container">
+       <!-- Info Header Overlay -->
+       <view class="chart-info-overlay">
+          <view class="humidity-level-row">
+             <text class="humidity-level-num">{{humidityLevel}}</text>
+             <!-- <text class="humidity-direction"></text> -->
+          </view>
+          <text class="humidity-desc-text">{{dewPoint}}</text>
+       </view>
+
+      <view class="chart-bg">
+        <image class="chart-svg" src="/assets/humidity-chart.png" mode="widthFix" />
+      </view>
+    </view>
+  </view>
+
+  <view class="divider"></view>
+
+  <!-- Summary -->
+  <view class="summary-section">
+    <text class="summary-title">每日摘要</text>
+    <view class="summary-box">
+      <text>{{summary}}</text>
+    </view>
+  </view>
+</view>

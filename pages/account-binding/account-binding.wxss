@@ -1,0 +1,89 @@
+page {
+  background-color: #ffffff;
+}
+
+.container {
+  padding: 30rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-container {
+  background-color: #F5EFE9;
+  border-radius: 32rpx;
+  display: flex;
+  flex-direction: column;
+  width: 640rpx;
+  overflow: hidden;
+}
+
+.list-item {
+  height: 118rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40rpx;
+  position: relative;
+}
+
+.list-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 40rpx;
+  right: 40rpx;
+  bottom: 0;
+  height: 1rpx;
+  background-color: rgba(0,0,0,0.08);
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+}
+
+.status-dot {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  background-color: #E0E0E0; /* Default gray/white for unbound */
+  margin-right: 24rpx;
+  border: 2rpx solid #ccc; /* Optional border for visibility on white/beige */
+}
+
+.status-dot.active {
+  background-color: #A7C297; /* Green for bound */
+  border-color: #A7C297;
+}
+
+.item-name {
+  font-size: 34rpx;
+  color: #333;
+}
+
+.item-right {
+  display: flex;
+  align-items: center;
+}
+
+.item-status {
+  font-size: 28rpx;
+  margin-right: 16rpx;
+}
+
+.item-status.bound {
+  color: #999;
+}
+
+.item-status.unbound {
+  color: #CC7979; /* Red */
+}
+
+.arrow-icon {
+  width: 18rpx;
+  height: 18rpx;
+  border-top: 4rpx solid #b0b0b0;
+  border-right: 4rpx solid #b0b0b0;
+  transform: rotate(45deg);
+  margin-right: 8rpx;
+}

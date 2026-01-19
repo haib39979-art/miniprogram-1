@@ -1,0 +1,58 @@
+<view class="container">
+  <!-- Group 1 -->
+  <view class="group">
+    <view class="list-item single-item" bindtap="onTapItem" data-item="account_security">
+      <text class="item-text">账号与安全</text>
+      <view class="arrow-icon"></view>
+    </view>
+  </view>
+
+  <!-- Group 2 -->
+  <view class="group">
+    <view class="list-item first-item" bindtap="onTapItem" data-item="profile">
+      <text class="item-text">个人资料</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapItem" data-item="general">
+      <text class="item-text">通用</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapItem" data-item="notification">
+      <text class="item-text">通知</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapItem" data-item="storage">
+      <text class="item-text">存储空间</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapItem" data-item="privacy">
+      <text class="item-text">隐私与权限</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapItem" data-item="display">
+      <text class="item-text">界面与显示</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item last-item" bindtap="onTapItem" data-item="about">
+      <text class="item-text">关于我们</text>
+      <view class="arrow-icon"></view>
+    </view>
+  </view>
+
+  <!-- Group 3 -->
+  <view class="group">
+    <view class="list-item first-item centered-item" bindtap="onSwitchAccount">
+      <text class="item-text">切换账号</text>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item last-item centered-item" bindtap="onLogout">
+      <text class="item-text logout-text">退出登录</text>
+    </view>
+  </view>
+</view>

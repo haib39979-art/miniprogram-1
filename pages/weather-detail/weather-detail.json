@@ -1,4 +1,6 @@
 {
+  "navigationBarTitleText": "天气详情",
+  "navigationStyle": "custom",
   "usingComponents": {
     "custom-tabbar": "/components/tabbar/tabbar"
   }

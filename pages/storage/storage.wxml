@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="group">
+    <view class="storage-header">
+      <view class="usage-label">小程序已用空间</view>
+      <view class="usage-amount">{{currentSize}} KB</view>
+      <progress percent="{{percent}}" border-radius="10" stroke-width="6" activeColor="#07C160" backgroundColor="#E0E0E0" class="progress-bar" />
+      <view class="limit-text">总可用限制: {{limitSize}} KB</view>
+    </view>
+  </view>
+
+  <view class="group">
+    <view class="list-item" bindtap="onClearStorage">
+      <text class="item-text" style="color: #FA5151;">清除缓存</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="list-container">
+    <block wx:for="{{bindings}}" wx:key="id">
+      <view class="list-item" bindtap="onTapItem" data-id="{{item.id}}">
+        <view class="item-left">
+          <view class="status-dot {{item.status === '已绑定' ? 'active' : ''}}"></view>
+          <text class="item-name">{{item.name}}</text>
+        </view>
+        <view class="item-right">
+          <text class="item-status {{item.status === '已绑定' ? 'bound' : 'unbound'}}">{{item.status}}</text>
+          <view class="arrow-icon"></view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,46 @@
+page {
+  background-color: #ffffff;
+}
+
+.container {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30rpx;
+  gap: 24rpx;
+}
+
+.article-card {
+  background-color: #F5EFE9;
+  border-radius: 32rpx;
+  padding: 32rpx 40rpx;
+  width: 640rpx;
+  box-sizing: border-box;
+  /* Removed box-shadow to match settings flat style, or keep if preferred. 
+     User asked for "same style", settings usually flat. */
+}
+
+.article-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.article-summary {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.article-date {
+  font-size: 24rpx;
+  color: #999;
+  text-align: right;
+}

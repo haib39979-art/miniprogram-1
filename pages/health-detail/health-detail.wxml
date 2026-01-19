@@ -1,0 +1,39 @@
+<view class="page">
+  <!-- Custom Header with Back Button -->
+  <view class="custom-header">
+    <view class="close-btn" bindtap="onBack">×</view>
+  </view>
+
+  <view class="header-section">
+    <text class="main-type">{{type}}</text>
+    <text class="main-subtitle">{{subtitle}}</text>
+    <view class="section-divider"></view>
+    <text class="section-title">生活指南</text>
+  </view>
+
+  <view class="guide-section">
+    <scroll-view scroll-x class="cards-scroll" enable-flex>
+      <view class="card" wx:for="{{guides}}" wx:key="index"> <!-- Changed key to index since titles are duplicate -->
+        <view class="card-header">
+            <text class="card-header-text">{{item.title}}</text>
+        </view>
+        <view class="card-content">
+          <view class="content-block" wx:for="{{item.sections}}" wx:for-item="section" wx:key="title">
+            <text class="block-title">{{section.title}}</text>
+            <view class="block-text-wrap">
+              <text class="block-text" wx:for="{{section.content}}" wx:for-item="line" wx:key="*this">{{line}}</text>
+            </view>
+          </view>
+        </view>
+        
+        <!-- Extra Icon Button (e.g. Acupoint Map) rendered at card level -->
+        <view class="extra-btn" wx:if="{{item.extraIcon}}" bindtap="onTapExtra" data-type="{{item.extraIcon}}">
+            <text class="extra-icon">✋</text>
+            <text class="extra-text">{{item.extraIcon}}</text>
+        </view>
+      </view>
+      <!-- Spacer for right padding -->
+      <view style="width: 32rpx; flex: 0 0 auto;"></view>
+    </scroll-view>
+  </view>
+</view>

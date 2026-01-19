@@ -1,0 +1,50 @@
+<view class="container">
+  <!-- Group 1 -->
+  <view class="group">
+    <view class="list-item first-item" bindtap="onTapItem" data-item="phone">
+      <text class="item-text">手机号</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapItem" data-item="realname">
+      <text class="item-text">实名认证</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapItem" data-item="password">
+      <text class="item-text">密码</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item last-item" bindtap="onTapItem" data-item="devices">
+      <text class="item-text">登录设备管理</text>
+      <view class="arrow-icon"></view>
+    </view>
+  </view>
+
+  <!-- Group 2 -->
+  <view class="group">
+    <view class="list-item single-item" bindtap="onTapItem" data-item="binding">
+      <text class="item-text">账号绑定管理</text>
+      <view class="arrow-icon"></view>
+    </view>
+  </view>
+
+  <!-- Group 3 -->
+  <view class="group">
+    <view class="list-item first-item" bindtap="onTapItem" data-item="recovery">
+      <text class="item-text">账号找回</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onTapItem" data-item="cancellation">
+      <text class="item-text">账号注销</text>
+      <view class="arrow-icon"></view>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item last-item" bindtap="onTapItem" data-item="security_knowledge">
+      <text class="item-text">安全知识</text>
+      <view class="arrow-icon"></view>
+    </view>
+  </view>
+</view>

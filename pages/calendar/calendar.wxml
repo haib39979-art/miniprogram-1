@@ -1,0 +1,6 @@
+<view class="page">
+  <view class="placeholder-container">
+    <text class="placeholder-text">日历功能开发中...</text>
+  </view>
+  <custom-tabbar active="calendar" />
+</view>

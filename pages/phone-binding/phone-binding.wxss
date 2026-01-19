@@ -1,0 +1,72 @@
+page {
+  background-color: #ffffff;
+}
+
+.container {
+  padding: 40rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+  margin-bottom: 300rpx; /* Push button down */
+}
+
+.input-wrapper {
+  background-color: #F5EFE9; /* Beige */
+  border-radius: 16rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+  position: relative;
+}
+
+.icon-phone {
+  margin-right: 20rpx;
+  font-size: 34rpx;
+  color: #666;
+}
+
+.input {
+  flex: 1;
+  height: 100%;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.placeholder {
+  color: #999;
+}
+
+.get-code-btn {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+  padding-left: 32rpx;
+  /* border-left: 1rpx solid #ddd; */ /* Optional divider */
+}
+
+.confirm-btn {
+  width: 100%;
+  height: 100rpx;
+  background-color: #E9D9D2; /* Darker Beige/Brownish */
+  color: #4A2E1F; /* Dark Brown Text */
+  font-size: 36rpx;
+  font-weight: bold;
+  border-radius: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  position: absolute; /* Fixed at bottom or relative? Screenshot shows it at bottom of content area */
+  bottom: 100rpx;
+  left: 32rpx;
+  right: 32rpx;
+  width: auto;
+}

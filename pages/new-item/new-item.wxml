@@ -1,0 +1,61 @@
+<view class="page">
+  <!-- Input Section -->
+  <view class="section-card">
+    <view class="input-row">
+      <text class="label">标题 ：</text>
+      <input class="input" placeholder="" value="{{title}}" bindinput="onTitleInput" />
+    </view>
+    <view class="divider"></view>
+    <view class="input-row align-top">
+      <text class="label">内容 ：</text>
+      <textarea class="textarea" placeholder="" value="{{content}}" bindinput="onContentInput" auto-height />
+    </view>
+  </view>
+
+  <!-- Time Settings Section -->
+  <view class="section-card">
+    <view class="setting-row">
+      <text class="setting-label">全天</text>
+      <switch checked="{{isAllDay}}" bindchange="onAllDayChange" color="#dcc8ba" />
+    </view>
+    
+    <view class="setting-row">
+      <text class="setting-label">开始</text>
+      <view class="picker-group">
+        <picker mode="date" value="{{startDate}}" bindchange="bindStartDateChange">
+          <text class="picker-text">{{startDate}}</text>
+        </picker>
+        <text class="picker-separator"> / </text>
+        <picker mode="time" value="{{startTime}}" bindchange="bindStartTimeChange">
+          <text class="picker-text">-{{startTime}}</text>
+        </picker>
+      </view>
+    </view>
+
+    <view class="setting-row">
+      <text class="setting-label">结束</text>
+      <view class="picker-group">
+        <picker mode="date" value="{{endDate}}" bindchange="bindEndDateChange">
+          <text class="picker-text">{{endDate}}</text>
+        </picker>
+        <text class="picker-separator"> / </text>
+        <picker mode="time" value="{{endTime}}" bindchange="bindEndTimeChange">
+          <text class="picker-text">-{{endTime}}</text>
+        </picker>
+      </view>
+    </view>
+
+    <view class="setting-row">
+      <text class="setting-label">行程时间</text>
+      <view class="time-tag">{{travelTime}}</view>
+    </view>
+  </view>
+
+  <!-- Repeat Section -->
+  <view class="section-card">
+    <view class="setting-row">
+      <text class="setting-label">重复</text>
+      <switch checked="{{isRepeat}}" bindchange="onRepeatChange" color="#dcc8ba" />
+    </view>
+  </view>
+</view>

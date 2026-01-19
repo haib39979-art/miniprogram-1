@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="list-container">
+    <view class="list-item" bindtap="onTapItem" data-type="wechat">
+      <text class="item-text">通过微信找回</text>
+      <view class="arrow-icon"></view>
+    </view>
+    
+    <view class="list-item" bindtap="onTapItem" data-type="idcard">
+      <text class="item-text">通过身份证找回</text>
+      <view class="arrow-icon"></view>
+    </view>
+    
+    <view class="list-item" bindtap="onTapItem" data-type="phone">
+      <text class="item-text">通过手机号找回</text>
+      <view class="arrow-icon"></view>
+    </view>
+  </view>
+</view>

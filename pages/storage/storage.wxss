@@ -1,0 +1,63 @@
+page {
+  background-color: #ffffff;
+}
+
+.container {
+  padding: 30rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.group {
+  width: 640rpx;
+  background-color: #F5EFE9;
+  border-radius: 32rpx;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 118rpx;
+  padding: 0 40rpx;
+  background-color: transparent;
+}
+
+.item-text {
+  font-size: 34rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.storage-header {
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.usage-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.usage-amount {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+
+.progress-bar {
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.limit-text {
+  font-size: 24rpx;
+  color: #999;
+  text-align: right;
+}

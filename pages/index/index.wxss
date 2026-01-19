@@ -25,23 +25,28 @@ page {
   display: flex;
   align-items: center;
   gap: 12rpx;
+  padding: 10rpx; /* Increase touch area */
+  position: relative;
+  z-index: 10; /* Ensure it's on top */
 }
 
 .topbar-title {
-  font-size: 30rpx;
+  font-size: 40rpx;
   color: #2d2d2d;
   letter-spacing: 1rpx;
   white-space: nowrap;
   flex: 0 0 auto;
 }
 
-.weather-icon {
-  width: 44rpx;
-  height: 44rpx;
+/* Weather Icon SVG */
+.weather-icon-svg {
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 10rpx;
 }
 
 .icon-btn {
-  padding: 8rpx 10rpx;
+  padding: 0;
   background: transparent;
   border: 0;
   line-height: 1;
@@ -52,8 +57,10 @@ page {
 }
 
 .icon-text {
-  font-size: 34rpx;
+  font-size: 56rpx;
   color: #3b3b3b;
+  line-height: 1;
+  display: block;
 }
 
 .hero-card {
@@ -72,18 +79,21 @@ page {
 
 .hero-actions-right {
   position: absolute;
-  top: 16rpx;
-  right: 16rpx;
+  top: 18rpx;
+  right: 0rpx;
+  z-index: 20;
 }
 
 .hero-main {
   display: flex;
   gap: 16rpx;
-  padding-top: 40rpx;
+  padding-top: 0;
+  align-items: stretch;
 }
 
 .hero-left {
-  width: 316rpx;
+  width: 340rpx; /* Slightly wider to match 1:1 look */
+  flex-shrink: 0;
 }
 
 .herb-image-wrap {
@@ -91,124 +101,205 @@ page {
   border-radius: 16rpx;
   overflow: hidden;
   width: 100%;
-  height: 603rpx;
-  padding: 22rpx 20rpx 18rpx 20rpx;
+  height: 100%; /* Fill the container height */
+  min-height: 720rpx; /* Make it tall as in design */
+  padding: 0; /* Remove padding to let image fill */
   box-sizing: border-box;
+  position: relative;
 }
 
 .herb-image-inner {
   width: 100%;
   height: 100%;
-  padding: 22rpx 20rpx 18rpx;
-  box-sizing: border-box;
+  position: relative;
 }
 
 .herb-image {
   width: 100%;
   height: 100%;
+  display: block;
 }
 
-.herb-title-row {
-  padding-top: 16rpx;
+/* Magnifier Icon */
+.magnifier-icon {
+  position: absolute;
+  bottom: 24rpx;
+  left: 24rpx;
+  width: 48rpx;
+  height: 48rpx;
+  opacity: 0.6;
+}
+
+/* Herb Name Row */
+.hero-name-row {
   display: flex;
   align-items: baseline;
-  gap: 10rpx;
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+  padding-left: 0;
 }
 
-.herb-title {
-  font-size: 30rpx;
-  color: #2d2d2d;
-  font-weight: 600;
+.hero-name-title {
+  font-size: 64rpx;
+  font-weight: 400;
+  color: #1a1a1a;
+  letter-spacing: 2rpx;
+  line-height: 1;
 }
 
-.herb-subtitle {
-  font-size: 24rpx;
-  color: #5d5d5d;
+.hero-name-alias {
+  font-size: 32rpx;
+  color: #555;
+  font-weight: 300;
+  margin-left: 16rpx;
+  letter-spacing: 1rpx;
+}
+
+.magnifier-circle {
+  width: 32rpx;
+  height: 32rpx;
+  border: 4rpx solid #5d4037;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.magnifier-plus {
+  font-size: 28rpx;
+  color: #5d4037;
+  line-height: 1;
+  font-weight: bold;
+  margin-top: -2rpx;
+}
+
+.magnifier-handle {
+  width: 4rpx;
+  height: 14rpx;
+  background: #5d4037;
+  position: absolute;
+  bottom: 4rpx;
+  right: 4rpx;
+  transform: rotate(-45deg);
+  transform-origin: bottom center;
 }
 
 .hero-right {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push info-box to bottom */
+}
+
+.date-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the date as in design? Or right aligned? Design looks centered relative to the right column */
+  margin-bottom: 20rpx;
+  padding-top: 60rpx; /* Push date down to avoid heart overlap */
 }
 
 .date-row {
   display: flex;
   align-items: baseline;
-  justify-content: flex-end;
-  margin-top: 8rpx;
+  line-height: 0.8;
 }
 
 .date-day {
-  font-size: 96rpx;
-  line-height: 1;
-  color: #202020;
-  font-weight: 500;
+  font-size: 160rpx; /* Huge date */
+  color: #1a1a1a;
+  font-weight: 400; /* Regular weight */
+  letter-spacing: -4rpx;
 }
 
 .date-suffix {
-  font-size: 28rpx;
-  color: #3b3b3b;
-  margin-left: 8rpx;
-  margin-bottom: 10rpx;
+  font-size: 48rpx;
+  color: #1a1a1a;
+  font-weight: 300;
+  margin-left: 4rpx;
 }
 
 .lunar-text {
-  font-size: 22rpx;
-  color: #666;
-  text-align: right;
-  margin-top: 8rpx;
+  font-size: 28rpx;
+  color: #1a1a1a;
+  text-align: center;
+  margin-top: 16rpx;
+  letter-spacing: 2rpx;
 }
 
-.yi-ji {
-  margin-top: 18rpx;
-  padding: 14rpx 14rpx;
-  border-radius: 14rpx;
-  background: rgba(255, 255, 255, 0.35);
+/* Info Box (Yi/Ji + Huangli) */
+.info-box {
+  background: #E5D8CA; /* Slightly darker beige */
+  border-radius: 20rpx;
+  padding: 24rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.yi-ji-row {
+.yi-ji-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.yi-block, .ji-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.yi-header, .ji-header {
   display: flex;
   align-items: center;
-  gap: 10rpx;
-  margin: 8rpx 0;
+  gap: 12rpx;
 }
 
 .dot {
-  width: 10rpx;
-  height: 10rpx;
+  width: 20rpx;
+  height: 20rpx;
   border-radius: 50%;
-  flex: 0 0 auto;
 }
 
 .dot-yi {
-  background: #b06b6b;
+  background: #D37272; /* Muted Red */
 }
 
 .dot-ji {
-  background: #7a8aa2;
+  background: #9EA1A3; /* Gray */
 }
 
-.yi-ji-label {
-  width: 30rpx;
+.yi-label, .ji-label {
+  font-size: 32rpx;
+  font-weight: bold;
   color: #333;
-  font-size: 22rpx;
-  flex: 0 0 auto;
 }
 
-.yi-ji-items {
-  font-size: 22rpx;
-  color: #333;
-  flex: 1 1 auto;
-  min-width: 0;
+.yi-content, .ji-content {
+  font-size: 28rpx;
+  color: #555;
+  font-weight: 500;
+  padding-left: 32rpx; /* Indent under the label */
 }
 
 .huangli-wrap {
-  margin-top: 16rpx;
-  border-radius: 14rpx;
+  margin-top: auto;
+  border-radius: 12rpx;
   overflow: hidden;
-  height: 170rpx;
-  background: #d7ead9;
-  border: 2rpx solid rgba(56, 139, 80, 0.25);
+  height: 180rpx; /* Adjust height */
+  background: #fff;
+  border: none;
+}
+
+/* Remove old styles that conflict */
+.herb-title-row, .yi-ji, .yi-ji-row, .yi-ji-label, .yi-ji-items {
+  display: none;
 }
 
 .huangli-image {
@@ -283,11 +374,11 @@ page {
 }
 
 .bullet {
-  width: 10rpx;
-  height: 10rpx;
+  width: 12rpx;
+  height: 12rpx;
   border-radius: 50%;
-  background: #a6b48b;
-  margin-top: 10rpx;
+  background: #c5e1a5;
+  margin-top: 12rpx;
   flex: 0 0 auto;
 }
 

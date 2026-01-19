@@ -1,0 +1,41 @@
+<view class="page">
+  <!-- Custom Navigation Bar Placeholder for spacing if needed, or absolute close button -->
+  <view class="nav-bar">
+    <view class="close-btn" bindtap="onBack">×</view>
+  </view>
+
+  <scroll-view scroll-y class="content">
+    <view class="poster-wrap">
+      <image class="poster-image" src="{{recipe.imageUrl}}" mode="widthFix" bindtap="onPreviewImage" />
+      <view class="poster-text-overlay">
+        <view class="title-col">
+          <text class="main-title">羊肚</text>
+          <text class="main-title">菌山</text>
+          <text class="main-title">药汤</text>
+        </view>
+        <view class="english-title">
+          <text>Morel mushroom</text>
+          <text>and yam soup</text>
+        </view>
+        
+        <!-- Ingredients Illustration Area (Simulated) -->
+        <view class="ingredients-illustration">
+          <text class="ing-title">食材：</text>
+          <view class="ing-grid">
+            <view class="ing-item" wx:for="{{recipe.ingredients}}" wx:key="name">
+              <view class="ing-icon"></view>
+              <text class="ing-amount">{{item.amount}}{{item.name}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="steps-card">
+      <view class="steps-title">具体步骤</view>
+      <view class="step-content" wx:for="{{recipe.steps}}" wx:key="*this">
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

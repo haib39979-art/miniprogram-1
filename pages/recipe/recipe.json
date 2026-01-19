@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "custom-tabbar": "/components/tabbar/tabbar"
-  }
+  },
+  "navigationBarTitleText": "今日宜食"
 }

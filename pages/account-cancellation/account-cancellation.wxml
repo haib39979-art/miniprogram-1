@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="warning-box">
+    <view class="warning-title">账号注销须知</view>
+    <view class="warning-content">
+      <text>1. 注销账号是不可恢复的操作，一旦注销，您将无法登录、使用本账号。</text>
+      <text>2. 账号下的所有数据（包括但不限于个人资料、收藏记录、历史记录等）将被永久删除。</text>
+      <text>3. 请确保账号下无未完成的订单或纠纷。</text>
+    </view>
+  </view>
+
+  <view class="agreement-box" bindtap="onCheck">
+    <view class="checkbox {{agreed ? 'checked' : ''}}">
+      <view wx:if="{{agreed}}" class="check-mark">✓</view>
+    </view>
+    <text class="agreement-text">我已阅读并同意《账号注销协议》</text>
+  </view>
+  
+  <view class="confirm-btn {{agreed ? '' : 'disabled'}}" bindtap="onConfirm">确认注销</view>
+</view>

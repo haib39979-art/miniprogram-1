@@ -1,0 +1,143 @@
+.page {
+  min-height: 100vh;
+  background: #fdfbf8;
+  position: relative;
+}
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 88rpx;
+  padding-top: env(safe-area-inset-top);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding-left: 32rpx;
+}
+
+.close-btn {
+  font-size: 56rpx;
+  color: #333;
+  line-height: 1;
+}
+
+.content {
+  height: 100vh;
+}
+
+.poster-wrap {
+  position: relative;
+  width: 100%;
+  background: #fdfbf8;
+  padding-top: env(safe-area-inset-top); /* Ensure content starts below status bar */
+}
+
+.poster-image {
+  width: 100%;
+  display: block;
+}
+
+/* Simulated Layout matching screenshot */
+/* In a real scenario, the entire top part might be one image. 
+   Here we try to overlay text if the image is just the soup bowl. 
+   However, user provided screenshot shows a designed poster. 
+   Assuming the 'imageUrl' is the FULL poster. 
+   If it is just the bowl, we would need complex HTML/CSS to build the poster.
+   Given the request "click to enlarge", it implies the top part is an image.
+   I will assume the 'imageUrl' is the full designed poster for now, 
+   or at least the main visual. 
+   If it's just the bowl, the overlay text below would be needed.
+*/
+
+.poster-text-overlay {
+  padding: 40rpx 32rpx;
+}
+
+.title-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+
+.main-title {
+  font-size: 64rpx;
+  font-weight: bold;
+  color: #5d4037;
+  line-height: 1.1;
+}
+
+.english-title {
+  font-size: 32rpx;
+  color: #8d6e63;
+  font-family: serif;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40rpx;
+}
+
+.ingredients-illustration {
+  background: #fff;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  position: relative;
+}
+
+.ing-title {
+  font-size: 32rpx;
+  color: #5d4037;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.ing-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.ing-item {
+  width: 22%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ing-icon {
+  width: 60rpx;
+  height: 60rpx;
+  background: #eee;
+  border-radius: 50%;
+  margin-bottom: 8rpx;
+}
+
+.ing-amount {
+  font-size: 20rpx;
+  color: #5d4037;
+  text-align: center;
+}
+
+.steps-card {
+  margin: 32rpx;
+  background: #efebe9; /* Beige/Brownish background */
+  border-radius: 24rpx;
+  padding: 32rpx;
+  border: 2rpx solid #d7ccc8;
+}
+
+.steps-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #3e2723;
+  margin-bottom: 24rpx;
+}
+
+.step-content {
+  font-size: 26rpx;
+  color: #4e342e;
+  line-height: 1.6;
+  margin-bottom: 24rpx;
+}

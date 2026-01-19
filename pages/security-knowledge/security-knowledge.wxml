@@ -1,0 +1,9 @@
+<view class="container">
+  <block wx:for="{{articles}}" wx:key="id">
+    <view class="article-card" bindtap="onTapArticle" data-id="{{item.id}}">
+      <view class="article-title">{{item.title}}</view>
+      <view class="article-summary">{{item.summary}}</view>
+      <view class="article-date">{{item.date}}</view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,51 @@
+page {
+  background-color: #ffffff;
+}
+
+.container {
+  padding: 40rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+}
+
+.input-wrapper {
+  background-color: #F5EFE9;
+  border-radius: 16rpx;
+  height: 112rpx;
+  padding: 0 32rpx;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  height: 100%;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.placeholder {
+  color: #999;
+}
+
+.confirm-btn {
+  width: 100%;
+  height: 100rpx;
+  background-color: #E9D9D2;
+  color: #4A2E1F;
+  font-size: 36rpx;
+  font-weight: bold;
+  border-radius: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 300rpx;
+}

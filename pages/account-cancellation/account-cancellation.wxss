@@ -1,0 +1,86 @@
+page {
+  background-color: #ffffff;
+}
+
+.container {
+  padding: 40rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.warning-box {
+  background-color: #F5EFE9;
+  border-radius: 32rpx;
+  padding: 40rpx;
+  width: 640rpx;
+  box-sizing: border-box;
+  margin-bottom: 40rpx;
+}
+
+.warning-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 24rpx;
+  text-align: center;
+}
+
+.warning-content {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.agreement-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+
+.checkbox {
+  width: 36rpx;
+  height: 36rpx;
+  border: 2rpx solid #999;
+  border-radius: 50%;
+  margin-right: 16rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox.checked {
+  background-color: #4A2E1F; /* Theme color */
+  border-color: #4A2E1F;
+}
+
+.check-mark {
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.agreement-text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.confirm-btn {
+  width: 640rpx;
+  height: 100rpx;
+  background-color: #CC7979; /* Red for danger */
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: bold;
+  border-radius: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-btn.disabled {
+  background-color: #ccc;
+  color: #fff;
+}

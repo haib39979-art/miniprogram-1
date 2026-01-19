@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="info-box">
+    <view class="info-text">请使用当前微信账号进行身份验证，验证通过后可重置密码。</view>
+  </view>
+  <view class="confirm-btn" bindtap="onConfirm">立即验证</view>
+</view>

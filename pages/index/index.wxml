@@ -1,21 +1,17 @@
 <view class="page">
   <scroll-view class="content" scroll-y>
     <view class="topbar">
-      <view class="topbar-weather">
+      <view class="topbar-weather" bindtap="onTapWeather">
         <text class="topbar-title">今日天气</text>
-        <image class="weather-icon" src="{{weather.iconUrl}}" mode="aspectFit" />
+        <!-- Weather Icon: Cloud + Snow -->
+        <image class="weather-icon-svg" src="/assets/weather-cloud-snow.svg" mode="aspectFit" />
       </view>
     </view>
 
-    <view class="hero-card">
-      <view class="hero-actions-left">
-        <button class="icon-btn" bindtap="onToggleFavorite">
-          <text class="icon-text">{{isFavorite ? '♥' : '♡'}}</text>
-        </button>
-      </view>
+    <view class="hero-card" bindtap="onTapHero">
       <view class="hero-actions-right">
-        <button class="icon-btn" bindtap="onOpenMore">
-          <text class="icon-text">⋯</text>
+        <button class="icon-btn" catchtap="onToggleFavorite">
+          <text class="icon-text">{{isFavorite ? '♥' : '♡'}}</text>
         </button>
       </view>
 
@@ -24,51 +20,69 @@
           <view class="herb-image-wrap">
             <view class="herb-image-inner">
               <image class="herb-image" src="{{herb.imageUrl}}" mode="aspectFit" />
+              <view class="herb-name-overlay">
+                <text class="herb-name-main">{{herb.name}}</text>
+                <text class="herb-name-sub">{{herb.alias}}</text>
+              </view>
+              <view class="magnifier-icon">
+                <view class="magnifier-circle"><text class="magnifier-plus">+</text></view>
+                <view class="magnifier-handle"></view>
+              </view>
             </view>
-          </view>
-          <view class="herb-title-row">
-            <text class="herb-title">{{herb.name}}</text>
-            <text class="herb-subtitle">{{herb.alias}}</text>
           </view>
         </view>
 
         <view class="hero-right">
-          <view class="date-row">
-            <text class="date-day">{{date.day}}</text>
-            <text class="date-suffix">/{{date.month}}</text>
-          </view>
-          <text class="lunar-text">{{date.lunar}}</text>
-
-          <view class="yi-ji">
-            <view class="yi-ji-row">
-              <view class="dot dot-yi"></view>
-              <text class="yi-ji-label">宜</text>
-              <text class="yi-ji-items">{{daily.yi}}</text>
+          <view class="date-section">
+            <view class="date-row">
+              <text class="date-day">{{date.day}}</text>
+              <text class="date-suffix">/{{date.month}}</text>
             </view>
-            <view class="yi-ji-row">
-              <view class="dot dot-ji"></view>
-              <text class="yi-ji-label">忌</text>
-              <text class="yi-ji-items">{{daily.ji}}</text>
-            </view>
+            <text class="lunar-text">{{date.lunar}}</text>
           </view>
 
-          <view class="huangli-wrap">
-            <image wx:if="{{huangli.imageUrl}}" class="huangli-image" src="{{huangli.imageUrl}}" mode="aspectFill" />
-            <view wx:else class="huangli-placeholder">
-              <view class="huangli-header">
-                <view class="huangli-dot"></view>
-                <text class="huangli-title">黄历</text>
+          <view class="info-box">
+            <view class="yi-ji-section">
+              <view class="yi-block">
+                <view class="yi-header">
+                  <view class="dot dot-yi"></view>
+                  <text class="yi-label">宜</text>
+                </view>
+                <text class="yi-content">{{daily.yi}}</text>
               </view>
-              <view class="huangli-lines">
-                <view class="huangli-line"></view>
-                <view class="huangli-line"></view>
-                <view class="huangli-line"></view>
-                <view class="huangli-line short"></view>
+              
+              <view class="ji-block">
+                <view class="ji-header">
+                  <view class="dot dot-ji"></view>
+                  <text class="ji-label">忌</text>
+                </view>
+                <text class="ji-content">{{daily.ji}}</text>
               </view>
-              <view class="huangli-stamp">宜养</view>
+            </view>
+
+            <view class="huangli-wrap">
+              <image wx:if="{{huangli.imageUrl}}" class="huangli-image" src="{{huangli.imageUrl}}" mode="aspectFill" />
+              <view wx:else class="huangli-placeholder">
+                <view class="huangli-header">
+                  <view class="huangli-dot"></view>
+                  <text class="huangli-title">黄历</text>
+                </view>
+                <view class="huangli-lines">
+                  <view class="huangli-line"></view>
+                  <view class="huangli-line"></view>
+                  <view class="huangli-line"></view>
+                  <view class="huangli-line short"></view>
+                </view>
+                <view class="huangli-stamp">宜养</view>
+              </view>
             </view>
           </view>
         </view>
+      </view>
+
+      <view class="hero-name-row">
+        <text class="hero-name-title">{{herb.name}}</text>
+        <text class="hero-name-alias">.{{herb.alias}}</text>
       </view>
 
       <view class="hero-details">
@@ -107,27 +121,5 @@
 
     <view class="bottom-spacer"></view>
   </scroll-view>
-
-  <view class="tabbar">
-    <view class="tab-item tab-active" bindtap="onTapTab" data-key="today">
-      <view class="tab-icon tab-icon-today">
-        <view class="tab-icon-today-dot"></view>
-      </view>
-      <text class="tab-text">今日</text>
-    </view>
-    <view class="tab-item" bindtap="onTapTab" data-key="calendar">
-      <view class="tab-icon tab-icon-calendar">
-        <view class="tab-icon-calendar-top"></view>
-        <view class="tab-icon-calendar-body"></view>
-      </view>
-      <text class="tab-text">日历</text>
-    </view>
-    <view class="tab-item" bindtap="onTapTab" data-key="me">
-      <view class="tab-icon tab-icon-me">
-        <view class="tab-icon-me-head"></view>
-        <view class="tab-icon-me-body"></view>
-      </view>
-      <text class="tab-text">我的</text>
-    </view>
-  </view>
+  <custom-tabbar active="calendar" />
 </view>

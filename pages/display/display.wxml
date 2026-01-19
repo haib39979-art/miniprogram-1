@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="group-title">外观模式</view>
+  <view class="group">
+    <view class="list-item first-item" bindtap="onSelectTheme" data-mode="system">
+      <text class="item-text">跟随系统</text>
+      <icon wx:if="{{theme === 'system'}}" type="success_no_circle" size="20" color="#6d4c41"/>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item" bindtap="onSelectTheme" data-mode="light">
+      <text class="item-text">浅色模式</text>
+      <icon wx:if="{{theme === 'light'}}" type="success_no_circle" size="20" color="#6d4c41"/>
+    </view>
+    <view class="divider"></view>
+    <view class="list-item last-item" bindtap="onSelectTheme" data-mode="dark">
+      <text class="item-text">深色模式</text>
+      <icon wx:if="{{theme === 'dark'}}" type="success_no_circle" size="20" color="#6d4c41"/>
+    </view>
+  </view>
+
+  <view class="group-title">字体大小</view>
+  <view class="group">
+    <view class="list-item single-item">
+      <view class="font-slider-container">
+        <text class="font-label small">A</text>
+        <slider class="font-slider" min="0" max="2" step="1" value="{{fontSizeIndex}}" activeColor="#6d4c41" block-size="24" bindchange="onFontSizeChange"/>
+        <text class="font-label large">A</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="group-title">显示设置</view>
+  <view class="group">
+    <view class="list-item single-item">
+      <text class="item-text">显示农历</text>
+      <switch checked="{{showLunar}}" color="#6d4c41" bindchange="onToggleLunar"/>
+    </view>
+  </view>
+</view>

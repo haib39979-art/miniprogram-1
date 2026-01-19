@@ -1,0 +1,117 @@
+page {
+  background-color: #ffffff;
+}
+
+.container {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 32rpx;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  width: 640rpx; /* Align with list width */
+  box-sizing: border-box;
+  padding: 0 10rpx;
+}
+
+.header-title {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.manage-tag {
+  background-color: #E9D9D2;
+  color: #4A2E1F;
+  font-size: 24rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.device-list {
+  background-color: #F5EFE9;
+  border-radius: 32rpx; /* Match settings rounded corners */
+  display: flex;
+  flex-direction: column;
+  width: 640rpx; /* Match settings width */
+}
+
+.device-item {
+  display: flex;
+  align-items: center;
+  /* height: 118rpx; */ /* Login devices usually display 2 lines (name + time), so maybe taller or auto? */
+  /* Screenshot implies a list item similar to settings but maybe slightly taller due to double line? */
+  /* User said "exactly the same block size". If "block" means the container, then width is key. */
+  /* If "block" means each item, then 118rpx is the target. */
+  /* Let's try 118rpx fixed height if content fits, or min-height. */
+  height: 140rpx; /* Double line text usually needs more than 118rpx to look good with padding, but let's see. */
+  /* Actually, settings items are single line. These are double. */
+  /* Let's stick to 118rpx if it fits, otherwise slightly larger but consistent. */
+  /* Let's try 128rpx or keep it auto with padding. */
+  /* But user said "block size exactly same". */
+  /* If the user means the *container* width, then 640rpx. */
+  /* If they mean the *item* height, settings is 118rpx. */
+  /* Let's try 118rpx and see if it cramps the text. */
+  height: 128rpx; 
+  padding: 0 40rpx;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.device-icon {
+  font-size: 40rpx;
+  margin-right: 24rpx;
+  color: #333;
+}
+
+.device-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6rpx;
+}
+
+.device-name {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.current-name {
+  color: #CC7979; 
+}
+
+.device-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.arrow-icon {
+  width: 18rpx;
+  height: 18rpx;
+  border-top: 4rpx solid #b0b0b0;
+  border-right: 4rpx solid #b0b0b0;
+  transform: rotate(45deg);
+}
+
+.divider {
+  height: 1rpx;
+  background-color: #F5EFE9;
+  position: relative;
+}
+.divider::after {
+    content: '';
+    position: absolute;
+    left: 40rpx;
+    right: 40rpx;
+    top: 0;
+    height: 100%;
+    background-color: rgba(0,0,0,0.08);
+}

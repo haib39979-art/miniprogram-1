@@ -1,0 +1,152 @@
+.page {
+  min-height: 100vh;
+  background: #fff; /* White background as requested by user */
+  padding-bottom: 60rpx;
+  box-sizing: border-box;
+}
+
+.custom-header {
+  padding-top: calc(env(safe-area-inset-top) + 80rpx);
+  padding-left: 12rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+}
+
+.close-btn {
+  font-size: 90rpx;
+  line-height: 1;
+  color: #000;
+  font-weight: 300;
+  padding: 10rpx;
+}
+
+.header-section {
+  padding: 40rpx 40rpx 40rpx;
+}
+
+.main-type {
+  font-size: 80rpx;
+  font-weight: 500;
+  color: #000;
+  display: block;
+  margin-bottom: 24rpx;
+  line-height: 1;
+}
+
+.main-subtitle {
+  font-size: 30rpx;
+  color: #333;
+  display: block;
+  margin-bottom: 80rpx;
+}
+
+.section-title {
+  font-size: 56rpx;
+  font-weight: 400;
+  color: #000;
+  display: block;
+  margin-bottom: 30rpx;
+}
+
+.guide-section {
+  padding-left: 40rpx;
+}
+
+.cards-scroll {
+  display: flex;
+  padding-right: 40rpx;
+  white-space: nowrap;
+  height: 1100rpx; /* Increased height for scroll to accommodate content and spacing */
+}
+
+.card {
+  width: 600rpx;
+  background: #f5efe9; /* Beige background matching screenshot content area */
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-right: 32rpx;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  white-space: normal;
+  vertical-align: top;
+  overflow: hidden;
+  position: relative; /* For absolute positioning of extra-btn */
+  height: 1000rpx; /* Fixed height to align cards and allow bottom positioning */
+}
+
+.card-header {
+  background: #e6dace; /* Darker beige tag background */
+  padding: 12rpx 32rpx; /* Tag-like padding */
+  display: inline-flex; /* Inline-flex for tag behavior */
+  align-items: center;
+  border-radius: 30rpx 30rpx 30rpx 0; /* Tag shape: rounded top-left, top-right, bottom-right */
+  align-self: flex-start; /* Align to left */
+  margin-bottom: 32rpx; /* Space below header */
+}
+
+.card-header-text {
+  font-size: 34rpx;
+  color: #5d4037;
+  font-weight: bold;
+}
+
+.card-content {
+  padding: 0; /* Content padding removed as card has padding */
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+  flex: 1; /* Allow content to take available space */
+}
+
+.content-block {
+  background: #ebdccf; /* Slightly darker beige block bg */
+  border-radius: 16rpx;
+  padding: 24rpx;
+  position: relative;
+}
+
+.block-title {
+  font-size: 30rpx;
+  color: #5d4037;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.block-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.block-text {
+  font-size: 26rpx;
+  color: #5d4037;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.extra-btn {
+  position: absolute;
+  right: 32rpx; /* Align with card padding */
+  bottom: 32rpx; /* Align with card padding */
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  opacity: 0.8;
+  z-index: 10;
+}
+
+.extra-icon {
+  font-size: 32rpx;
+  color: #cba283;
+}
+
+.extra-text {
+  font-size: 24rpx;
+  color: #cba283;
+  font-weight: bold;
+}

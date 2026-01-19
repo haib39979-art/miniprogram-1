@@ -1,0 +1,37 @@
+<view class="container">
+  <!-- Custom Navigation Bar -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="close-btn" bindtap="onClose">
+        <text class="close-icon">✕</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Main Content -->
+  <view class="main-content">
+    <image class="big-avatar" src="{{avatarUrl}}" mode="aspectFill" />
+  </view>
+
+  <!-- Bottom Menu -->
+  <view class="bottom-menu">
+    <view class="menu-item" bindtap="onChangeAvatar">
+      <text class="menu-text">更换头像</text>
+      <view class="menu-icon">
+        <image src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTkgM0g1QzMuODk1NDMgMyAzIDMuODk1NDMgMyA1VjE5QzMgMjAuMTA0NiAzLjg5NTQzIDIxIDUgMjFIMTlDMjAuMTA0NiAyMSAyMSAyMC4xMDQ2IDIxIDE5VjVDMjEgMy44OTU0MyAyMC4xMDQ2IDMgMTkgM1oiIHN0cm9rZT0iIzY2NiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik04LjUgMTBDOS4zMjg0MyAxMCAxMCA5LjMyODQzIDEwIDguNUMxMCA3LjY3MTU3IDkuMzI4NDMgNyA4LjUgN0M3LjY3MTU3IDcgNyA3LjY3MTU3IDcgOC41QzcgOS4zMjg0MyA3LjY3MTU3IDEwIDguNSAxMFoiIHN0cm9rZT0iIzY2NiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0yMSAxNUwxNiAxMEw1IDIxIiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=" style="width: 32rpx; height: 32rpx;" />
+      </view>
+    </view>
+    <view class="menu-item" bindtap="onSaveAvatar">
+      <text class="menu-text">保存头像</text>
+      <view class="menu-icon">
+        <image src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTIgNVYxOU0xMiAxOUwxOSAxMk0xMiAxOUw1IDEyIiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=" style="width: 32rpx; height: 32rpx;" />
+      </view>
+    </view>
+    <view class="menu-item" bindtap="onGetPendant">
+      <text class="menu-text">获取挂件</text>
+      <view class="menu-icon">
+        <image src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjAgMjFWMTlDMjAgMTYuNzkwOSAxOC4yMDkxIDE1IDE2IDE1SDhDNS43OTA4NiAxNSA0IDE2Ljc5MDkgNCAxOVYyMSIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PGNpcmNsZSBjeD0iMTIiIGN5PSI3IiByPSI0IiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=" style="width: 32rpx; height: 32rpx;" />
+      </view>
+    </view>
+  </view>
+</view>
