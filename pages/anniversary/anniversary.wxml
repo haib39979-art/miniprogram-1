@@ -1,0 +1,35 @@
+<view class="container">
+  <!-- Back Button - Pushed down as requested -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight + 4}}px;">
+    <view class="back-btn" bindtap="onBack">
+      <text class="back-icon">←</text>
+    </view>
+  </view>
+
+  <view class="content">
+    <view class="card">
+      <view class="header">我们已经相伴</view>
+      
+      <view class="days-display">
+        <text class="days-number">{{daysCount}}</text>
+        <text class="days-unit">天</text>
+      </view>
+
+      <view class="divider"></view>
+
+      <picker mode="date" value="{{startDate}}" bindchange="bindDateChange">
+        <view class="date-section">
+          <text class="date-label">起始日</text>
+          <view class="date-value-wrap">
+            <text class="date-value">{{displayDate}}</text>
+            <view class="edit-btn">
+              <text class="edit-icon">✎</text> <!-- Or a simple SVG if preferred, text is fine for now -->
+            </view>
+          </view>
+        </view>
+      </picker>
+    </view>
+
+    <view class="quote">陪伴是最长情的告白</view>
+  </view>
+</view>

@@ -1,0 +1,61 @@
+<view class="container">
+  <!-- Header -->
+  <view class="header">
+    <view class="back-btn" bindtap="onBack">
+      <image class="back-icon" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAxMiAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTEgMUwyIDEwTDExIDE5IiBzdHJva2U9IiMzMzMzMzMiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=" />
+    </view>
+    <view class="title-icon">
+       <!-- Cloud Wind Icon -->
+       <image class="title-svg" src="data:image/svg+xml;charset=utf-8,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 8C12 5.79 13.79 4 16 4C18.21 4 20 5.79 20 8H4M16 28C13.79 28 12 26.21 12 24H28M23 16C23 18.21 21.21 20 19 20H4' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+       <text>风</text>
+    </view>
+    <view class="placeholder"></view>
+  </view>
+
+  <!-- Date Strip -->
+  <scroll-view class="date-scroll" scroll-x="true" enable-flex="true">
+    <view class="date-item {{item.active ? 'active' : ''}}" 
+          wx:for="{{weekDays}}" 
+          wx:key="date"
+          bindtap="onTapDate"
+          data-index="{{index}}">
+      <text class="day-text">{{item.day}}</text>
+      <text class="date-text">{{item.date}}</text>
+    </view>
+  </scroll-view>
+  <view class="full-date">{{currentDate}}</view>
+
+  <view class="divider"></view>
+
+  <!-- Chart (Simulated) -->
+  <view class="chart-section">
+    <view class="chart-title-overlay">
+      <text class="chart-title-text">风</text>
+    </view>
+    
+    <!-- Info Header Overlay (Moved above chart) -->
+    <view class="chart-info-overlay">
+        <view class="wind-level-row">
+        <text class="wind-level-num">{{windLevel}}</text>
+        <text class="wind-direction">{{windDirection}}</text>
+        </view>
+        <text class="wind-gust-text">{{gust}}</text>
+    </view>
+
+    <view class="chart-container">
+      <view class="chart-bg">
+        <image class="chart-svg" src="/packageWeather/assets/wind-chart.png" mode="widthFix" />
+      </view>
+    </view>
+  </view>
+
+  <view class="divider"></view>
+
+  <!-- Summary -->
+  <view class="summary-section">
+    <text class="summary-title">每日摘要</text>
+    <view class="summary-box">
+      <text>{{summary}}</text>
+    </view>
+  </view>
+</view>

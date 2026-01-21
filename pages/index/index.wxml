@@ -8,17 +8,13 @@
       </view>
     </view>
 
-    <view class="hero-card" bindtap="onTapHero">
-      <view class="hero-actions-right">
-        <button class="icon-btn" catchtap="onToggleFavorite">
-          <text class="icon-text">{{isFavorite ? '♥' : '♡'}}</text>
-        </button>
-      </view>
 
+    <view class="hero-card">
+      <!-- Removed hero-actions-right from here -->
       <view class="hero-main">
         <view class="hero-left">
           <view class="herb-image-wrap">
-            <view class="herb-image-inner">
+            <view class="herb-image-inner" bindtap="onTapHero">
               <image class="herb-image" src="{{herb.imageUrl}}" mode="aspectFit" />
               <view class="herb-name-overlay">
                 <text class="herb-name-main">{{herb.name}}</text>
@@ -34,6 +30,11 @@
 
         <view class="hero-right">
           <view class="date-section">
+            <view class="hero-actions-right">
+              <button class="icon-btn" catchtap="onToggleFavorite">
+                <text class="icon-text {{isFavorite ? 'active' : ''}}">{{isFavorite ? '♥' : '♡'}}</text>
+              </button>
+            </view>
             <view class="date-row">
               <text class="date-day">{{date.day}}</text>
               <text class="date-suffix">/{{date.month}}</text>
@@ -110,12 +111,17 @@
       <button class="add-btn" bindtap="onAddTodo">+</button>
     </view>
 
-    <view class="todos-empty" wx:if="{{!todos || todos.length === 0}}">
-      <text class="todos-empty-text">今天还没有事项</text>
-    </view>
-    <view class="todos-list" wx:else>
-      <view class="todo-item" wx:for="{{todos}}" wx:key="id">
-        <text class="todo-text">{{item.text}}</text>
+    <view class="todos-list">
+      <view class="todo-item" wx:for="{{todos}}" wx:key="id" bindtap="onTapTodo" data-id="{{item.id}}">
+        <view class="todo-main">
+          <text class="todo-text">{{item.text}}</text>
+          <text class="todo-time" wx:if="{{item.time}}">{{item.time}}</text>
+        </view>
+      </view>
+      
+      <!-- Add Button Row -->
+      <view class="todo-add-item" bindtap="onAddTodo">
+        <text class="add-plus">+</text>
       </view>
     </view>
 

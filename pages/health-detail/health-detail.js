@@ -70,7 +70,7 @@ Page({
     const type = e.currentTarget.dataset.type
     if (type === '穴位图') {
         wx.navigateTo({
-            url: '/pages/acupoints/acupoints'
+            url: '/packageHealth/pages/acupoints/acupoints'
         })
     }
   }

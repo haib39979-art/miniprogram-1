@@ -10,7 +10,7 @@ page {
 
 .content {
   height: 100vh;
-  padding: 40rpx 32rpx 0;
+  padding: 178rpx 32rpx 0; /* Adjusted for custom nav (approx 88rpx nav + 50rpx status + 40rpx padding) */
   box-sizing: border-box;
 }
 
@@ -63,6 +63,10 @@ page {
   display: block;
 }
 
+.icon-text.active {
+  color: #CC7979;
+}
+
 .hero-card {
   position: relative;
   background: #efe6dd;
@@ -71,17 +75,8 @@ page {
   box-sizing: border-box;
 }
 
-.hero-actions-left {
-  position: absolute;
-  top: 16rpx;
-  left: 16rpx;
-}
-
 .hero-actions-right {
-  position: absolute;
-  top: 18rpx;
-  right: 0rpx;
-  z-index: 20;
+  /* No extra margin needed when centered above */
 }
 
 .hero-main {
@@ -200,7 +195,7 @@ page {
   flex-direction: column;
   align-items: center; /* Center the date as in design? Or right aligned? Design looks centered relative to the right column */
   margin-bottom: 20rpx;
-  padding-top: 60rpx; /* Push date down to avoid heart overlap */
+  padding-top: 0; /* Remove padding as heart is now inline */
 }
 
 .date-row {
@@ -435,15 +430,45 @@ page {
 }
 
 .todo-item {
-  padding: 18rpx 18rpx;
-  background: #efe6dd;
+  padding: 24rpx 24rpx;
+  background: #E9D9D2;
   border-radius: 18rpx;
   margin-top: 14rpx;
 }
 
+.todo-main {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
 .todo-text {
-  font-size: 26rpx;
+  font-size: 30rpx;
   color: #2d2d2d;
+  font-weight: 500;
+}
+
+.todo-time {
+  font-size: 24rpx;
+  color: #888;
+}
+
+.todo-add-item {
+  padding: 24rpx;
+  background: #E9D9D2;
+  border-radius: 18rpx;
+  margin-top: 14rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40rpx;
+}
+
+.add-plus {
+  font-size: 48rpx;
+  color: #8b5a56;
+  font-weight: 300;
+  line-height: 1;
 }
 
 .bottom-spacer {

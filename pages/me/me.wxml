@@ -63,7 +63,8 @@
             <view class="thought-dot-1"></view>
             <view class="thought-dot-2"></view>
           </view>
-          <image class="illustration-graphic" src="data:image/svg+xml;charset=utf-8,%3Csvg width='140' height='140' viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='70' cy='50' r='30' fill='%23FFCCBC'/%3E%3Cpath d='M70 80 Q30 140 110 140 H30 Z' fill='%23FFAB91'/%3E%3C/svg%3E" mode="aspectFit" />
+          <!-- Simulated Person Image (SVG) -->
+          <image class="illustration-graphic" src="data:image/svg+xml;charset=utf-8,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Hair (Back) --%3E%3Ccircle cx='100' cy='80' r='50' fill='%233E2723'/%3E%3C!-- Face --%3E%3Ccircle cx='100' cy='90' r='40' fill='%23FFCCBC'/%3E%3C!-- Eyes --%3E%3Ccircle cx='85' cy='85' r='4' fill='%233E2723'/%3E%3Ccircle cx='115' cy='85' r='4' fill='%233E2723'/%3E%3C!-- Blush --%3E%3Ccircle cx='80' cy='100' r='6' fill='%23FFAB91' opacity='0.6'/%3E%3Ccircle cx='120' cy='100' r='6' fill='%23FFAB91' opacity='0.6'/%3E%3C!-- Body/Clothes --%3E%3Cpath d='M50 180 Q100 120 150 180 V200 H50 Z' fill='%238FAACA'/%3E%3C/svg%3E" mode="aspectFit" />
           <view class="illustration-tag">
             <text class="leaf-icon">🍃</text>
             <text>阳虚质</text>
@@ -71,7 +72,7 @@
         </view>
         
         <!-- Bottom Small Card (Days) -->
-        <view class="grid-card days-card">
+        <view class="grid-card days-card" bindtap="onTapDays">
           <view class="days-label">相伴</view>
           <view class="days-count">{{daysCount}}</view>
           <view class="days-unit">DAYS</view>
@@ -97,7 +98,7 @@
         <view class="recipe-info">
           <view class="recipe-title-row">
             <text class="recipe-title">{{item.name}}</text>
-            <view class="heart-icon">♡</view>
+            <view class="heart-icon" style="color: #CC7979;">♥</view>
           </view>
           <view class="recipe-tags">
             <view class="tag-row" wx:for="{{item.tags}}" wx:key="*this">
@@ -161,10 +162,17 @@
   <!-- Record Tab Content -->
   <scroll-view scroll-y class="content-area" wx:if="{{activeTab === 'record'}}">
     <view class="record-grid">
-      <view class="record-item" wx:for="{{recordList}}" wx:key="id" bindtap="onTapRecipe" data-id="{{item.id}}">
-        <image class="record-img" src="{{item.imageUrl}}" mode="aspectFill" />
-        <text class="record-date">{{item.date}}</text>
-      </view>
+      <block wx:if="{{recordList.length > 0}}">
+        <view class="record-item" wx:for="{{recordList}}" wx:key="id" bindtap="onTapRecord" data-id="{{item.id}}">
+          <image class="record-img" src="{{item.imageUrl}}" mode="aspectFill" />
+          <text class="record-date">{{item.date}}</text>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="record-placeholder">
+          <text>你还未收藏打卡</text>
+        </view>
+      </block>
     </view>
     <view style="height: 160rpx;"></view>
   </scroll-view>

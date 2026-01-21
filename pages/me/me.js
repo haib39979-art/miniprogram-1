@@ -28,84 +28,47 @@ Page({
     daysCount: 1258,
     startDate: '2022.08.01',
     customGridImage: '/assets/recipe-yangdujun.png',
-    collectedRecipes: [
-      { 
-        id: 1, 
-        name: '羊肚菌山药汤', 
-        tags: ['健胃养脾', '益气补血', '增强免疫力'],
-        suitable: '阳虚质',
-        imageUrl: '/assets/recipe-yangdujun.png' 
-      },
-      { 
-        id: 2, 
-        name: '羊肚菌山药汤', 
-        tags: ['健胃养脾', '益气补血', '增强免疫力'],
-        suitable: '阳虚质',
-        imageUrl: '/assets/recipe-yangdujun.png' 
-      }
-    ],
-    collectedHerbs: [
-      {
-        id: 1,
-        day: '27',
-         month: '12',
-         lunarDate: '农历四八',
-         yi: '安床开业',
-         ji: '搬家出行',
-         name: '三七',
-        alias: '金不换',
-        origin: '云南文山',
-        details: [
-           { label: '产地(中国)', content: '全国主产于云南、广西等地区' },
-           { label: '性味', content: '性温，味甘微苦' },
-           { label: '功效', content: '散瘀止血，消肿定痛' },
-           { label: '主治', content: '出血症、跌打损伤、瘀血肿痛' }
-         ],
-         imageUrl: '/assets/herb-sanqi.png'
-       },
-       {
-         id: 2,
-         day: '27',
-         month: '12',
-         lunarDate: '农历四八',
-         yi: '安床开业',
-         ji: '搬家出行',
-         name: '三七',
-         alias: '金不换',
-         origin: '云南文山',
-         details: [
-           { label: '产地(中国)', content: '全国主产于云南、广西等地区' },
-           { label: '性味', content: '性温，味甘微苦' },
-           { label: '功效', content: '散瘀止血，消肿定痛' },
-           { label: '主治', content: '出血症、跌打损伤、瘀血肿痛' }
-         ],
-         imageUrl: '/assets/herb-sanqi.png'
-       },
-       {
-         id: 3,
-         day: '27',
-         month: '12',
-         lunarDate: '农历四八',
-         yi: '安床开业',
-         ji: '搬家出行',
-         name: '三七',
-         alias: '金不换',
-         origin: '云南文山',
-         details: [
-           { label: '产地(中国)', content: '全国主产于云南、广西等地区' },
-           { label: '性味', content: '性温，味甘微苦' },
-           { label: '功效', content: '散瘀止血，消肿定痛' },
-           { label: '主治', content: '出血症、跌打损伤、瘀血肿痛' }
-         ],
-         imageUrl: '/assets/herb-sanqi.png'
-       }
-    ],
-    recordList: [
-      { id: 1, date: '2025.01.12', imageUrl: '/assets/recipe-yangdujun.png' },
-      { id: 2, date: '2025.01.12', imageUrl: '/assets/recipe-yangdujun.png' },
-      { id: 3, date: '2025.01.12', imageUrl: '/assets/recipe-yangdujun.png' },
-      { id: 4, date: '2025.01.12', imageUrl: '/assets/recipe-yangdujun.png' }
-    ]
+    collectedRecipes: [],
+    collectedHerbs: [],
+    recordList: []
+  },
+
+  onShow() {
+    this.updateFavorites()
+    this.updateDays()
+  },
+
+  updateDays() {
+    let startDate = wx.getStorageSync('startDate')
+    if (!startDate) {
+      startDate = '2022-08-01'
+      wx.setStorageSync('startDate', startDate)
+    }
+    
+    // Normalize date string for calculation
+    const start = new Date(startDate.replace(/\./g, '-'))
+    const now = new Date()
+    const diffTime = Math.abs(now - start)
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) 
+    
+    // Format for display (Zen style: dots)
+    const displayDate = startDate.replace(/-/g, '.')
+
+    this.setData({
+      startDate: displayDate,
+      daysCount: diffDays
+    })
+  },
+
+  updateFavorites() {
+    const favorites = wx.getStorageSync('favoritedCheckIns') || []
+    const collectedRecipes = wx.getStorageSync('collectedRecipes') || []
+    const collectedHerbs = wx.getStorageSync('collectedHerbs') || []
+    this.setData({
+      recordList: favorites,
+      collectedRecipes: collectedRecipes,
+      collectedHerbs: collectedHerbs
+    })
   },
 
   onLoad() {
@@ -123,11 +86,25 @@ Page({
   },
 
   onTapSettings() {
-    wx.navigateTo({ url: '/pages/settings/settings' })
+    wx.navigateTo({ url: '/packageSettings/pages/settings/settings' })
   },
 
   onTapAvatar() {
     wx.navigateTo({ url: '/pages/avatar-detail/avatar-detail' })
+  },
+
+  onTapRecord(e) {
+    const id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/pages/record-detail/record-detail?id=${id}`
+    })
+  },
+
+  onTapDays() {
+    const { daysCount, startDate } = this.data;
+    wx.navigateTo({
+      url: `/pages/anniversary/anniversary?days=${daysCount}&date=${startDate}`
+    })
   },
 
   onTapRecipe() {

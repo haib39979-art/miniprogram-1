@@ -1,9 +1,0 @@
-<view class="container">
-  <view class="custom-nav">
-    <view class="close-btn" bindtap="onClose">×</view>
-  </view>
-  <scroll-view scroll-y class="content-scroll">
-    <image class="acupoint-image" src="/assets/acupoints_front.png" mode="widthFix" show-menu-by-longpress></image>
-    <image class="acupoint-image" src="/assets/acupoints_back.png" mode="widthFix" show-menu-by-longpress></image>
-  </scroll-view>
-</view>

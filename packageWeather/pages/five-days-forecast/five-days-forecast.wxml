@@ -1,0 +1,34 @@
+<view class="container">
+  <view class="header">
+    <view class="back-btn" bindtap="onTapBack">
+      <image class="back-arrow-img" src="/assets/icons/back-chevron.svg" />
+    </view>
+  </view>
+
+  <scroll-view scroll-y class="forecast-list" enable-flex>
+    <view class="forecast-item {{item.isToday ? 'today' : ''}}" wx:for="{{forecastList}}" wx:key="dateStr">
+      <view class="date-col">
+        <text class="week-day">{{item.weekDay}}</text>
+        <text class="date-text">{{item.dateStr}}</text>
+      </view>
+      
+      <view class="icon-col">
+        <image wx:if="{{item.icon === 'sunny'}}" class="weather-icon" src="/assets/icons/sunny.svg" />
+        <image wx:elif="{{item.icon === 'cloudy'}}" class="weather-icon" src="/assets/icons/cloudy.svg" />
+        <image wx:elif="{{item.icon === 'snow'}}" class="weather-icon" src="/assets/icons/snow.svg" />
+        <image wx:elif="{{item.icon === 'wind'}}" class="weather-icon" src="/assets/icons/wind.svg" />
+        <image wx:else class="weather-icon" src="/assets/icons/sunny.svg" />
+        <text class="status-text">{{item.status}}</text>
+      </view>
+
+      <view class="temp-col">
+        <text class="temp-high">{{item.tempHigh}}°</text>
+        <view class="temp-bar"></view>
+        <text class="temp-low">{{item.tempLow}}°</text>
+      </view>
+    </view>
+    
+    <!-- Bottom Spacer -->
+    <view style="height: 60rpx;"></view>
+  </scroll-view>
+</view>

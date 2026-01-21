@@ -19,7 +19,7 @@
     <view class="card-content">
       <view class="card-header">
         <text class="card-title">{{recipe.name}}</text>
-        <view class="favorite-icon" catchtap="onToggleFavorite">♡</view>
+        <view class="favorite-icon {{isFavorite ? 'active' : ''}}" catchtap="onToggleFavorite">{{isFavorite ? '♥' : '♡'}}</view>
       </view>
       <view class="benefits-list">
         <view class="benefit-item" wx:for="{{recipe.benefits}}" wx:key="*this">·{{item}}</view>
@@ -37,7 +37,7 @@
       <view class="camera-icon" bindtap="onCheckIn">📷</view>
     </view>
     <view class="checkin-card {{isCheckedIn ? 'checked' : ''}}">
-      <image wx:if="{{checkInImage}}" src="{{checkInImage}}" mode="aspectFill" class="checkin-image" />
+      <image wx:if="{{checkInImage}}" src="{{checkInImage}}" mode="widthFix" class="checkin-image" bindtap="onCancelCheckIn" />
       <text wx:else class="checkin-text">{{isCheckedIn ? '已完成今日打卡' : '今日未打卡'}}</text>
     </view>
   </view>

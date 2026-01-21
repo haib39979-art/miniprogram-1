@@ -58,4 +58,9 @@
       <switch checked="{{isRepeat}}" bindchange="onRepeatChange" color="#dcc8ba" />
     </view>
   </view>
+
+  <!-- Confirm Button -->
+  <view class="btn-area">
+    <button class="confirm-btn" bindtap="onConfirm">确定</button>
+  </view>
 </view>

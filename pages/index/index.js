@@ -44,10 +44,68 @@ Page({
         month,
       },
     })
+    this.checkIfFavorite()
+  },
+
+  onShow() {
+    console.log('Index Page onShow triggered')
+    this.loadTodos()
+  },
+
+  loadTodos() {
+    try {
+      const todos = wx.getStorageSync('todos') || []
+      console.log('Loaded todos from storage:', todos)
+      this.setData({ todos })
+    } catch (e) {
+      console.error('Failed to load todos:', e)
+    }
+  },
+
+  checkIfFavorite() {
+    const collectedHerbs = wx.getStorageSync('collectedHerbs') || []
+    const isFavorite = collectedHerbs.some(h => h.name === this.data.herb.name)
+    this.setData({ isFavorite })
   },
 
   onToggleFavorite() {
-    this.setData({ isFavorite: !this.data.isFavorite })
+    const isFavorite = !this.data.isFavorite
+    this.setData({ isFavorite })
+
+    let collectedHerbs = wx.getStorageSync('collectedHerbs') || []
+    const currentHerbName = this.data.herb.name
+
+    if (isFavorite) {
+      // Add to collection if not already present
+      if (!collectedHerbs.some(h => h.name === currentHerbName)) {
+        const newHerb = {
+          id: Date.now(),
+          name: this.data.herb.name,
+          alias: this.data.herb.alias,
+          imageUrl: this.data.herb.imageUrl,
+          day: this.data.date.day,
+          month: this.data.date.month,
+          lunarDate: this.data.date.lunar,
+          yi: this.data.daily.yi,
+          ji: this.data.daily.ji,
+          origin: this.data.herb.distribution.replace('产地分布：', ''),
+          details: [
+            { label: '产地', content: this.data.herb.distribution.replace('产地分布：', '') },
+            { label: '特征', content: this.data.herb.feature.replace('形态特征：', '') },
+            { label: '功效', content: this.data.herb.effect.replace('功效：', '') },
+            { label: '用法', content: this.data.herb.usage.replace('用法：', '') }
+          ]
+        }
+        collectedHerbs.unshift(newHerb)
+        wx.setStorageSync('collectedHerbs', collectedHerbs)
+        wx.showToast({ title: '已收藏', icon: 'success' })
+      }
+    } else {
+      // Remove from collection
+      collectedHerbs = collectedHerbs.filter(h => h.name !== currentHerbName)
+      wx.setStorageSync('collectedHerbs', collectedHerbs)
+      wx.showToast({ title: '已取消收藏', icon: 'none' })
+    }
   },
 
   onOpenMore() {
@@ -66,6 +124,11 @@ Page({
 
   onAddTodo() {
     wx.navigateTo({ url: '/pages/new-item/new-item' })
+  },
+
+  onTapTodo(e) {
+    const id = e.currentTarget.dataset.id
+    wx.navigateTo({ url: `/pages/new-item/new-item?id=${id}` })
   },
 
   onTapWeather() {
