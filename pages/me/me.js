@@ -30,7 +30,9 @@ Page({
     customGridImage: '/assets/recipe-yangdujun.png',
     collectedRecipes: [],
     collectedHerbs: [],
-    recordList: []
+    recordList: [],
+    todayCheckInImage: '',
+    hasTodayCheckIn: false
   },
 
   onShow() {
@@ -66,10 +68,15 @@ Page({
     const favorites = wx.getStorageSync('favoritedCheckIns') || []
     const collectedRecipes = wx.getStorageSync('collectedRecipes') || []
     const collectedHerbs = wx.getStorageSync('collectedHerbs') || []
+    const todayCheckIn = wx.getStorageSync('todayCheckIn') || null
+    const today = new Date().toLocaleDateString()
+    const todayItem = todayCheckIn && todayCheckIn.date === today ? todayCheckIn : null
     this.setData({
       recordList: favorites,
       collectedRecipes: collectedRecipes,
-      collectedHerbs: collectedHerbs
+      collectedHerbs: collectedHerbs,
+      todayCheckInImage: todayItem ? todayItem.imageUrl : '',
+      hasTodayCheckIn: !!todayItem
     })
   },
 

@@ -2,6 +2,18 @@ function pad2(num) {
   return num < 10 ? `0${num}` : String(num)
 }
 
+const HUANGLI_API_URL = 'https://api.jisuapi.com/huangli/date'
+const HUANGLI_API_KEY = ''
+
+function normalizeItems(input) {
+  if (Array.isArray(input)) return input
+  if (typeof input !== 'string') return []
+  return input
+    .split(/[、,，.\s]/)
+    .map(item => item.trim())
+    .filter(Boolean)
+}
+
 Page({
   data: {
     isFavorite: false,
@@ -45,6 +57,7 @@ Page({
       },
     })
     this.checkIfFavorite()
+    this.fetchHuangli(now)
   },
 
   testVision() {
@@ -118,6 +131,33 @@ Page({
         showCancel: false
       });
     });
+  },
+
+  fetchHuangli(date) {
+    if (!HUANGLI_API_KEY) return
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    wx.request({
+      url: `${HUANGLI_API_URL}?appkey=${HUANGLI_API_KEY}&year=${year}&month=${month}&day=${day}`,
+      method: 'GET',
+      success: (res) => {
+        const result = res.data && res.data.result ? res.data.result : null
+        if (!result) return
+        const yiList = normalizeItems(result.yi).slice(0, 2)
+        const jiList = normalizeItems(result.ji).slice(0, 2)
+        const yi = yiList.join('、')
+        const ji = jiList.join('、')
+        if (yi || ji) {
+          this.setData({
+            daily: {
+              yi: yi || this.data.daily.yi,
+              ji: ji || this.data.daily.ji
+            }
+          })
+        }
+      }
+    })
   },
 
   onShow() {

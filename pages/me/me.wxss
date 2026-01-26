@@ -171,6 +171,19 @@
   flex: 1;
   border-radius: 24rpx;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-left.no-checkin {
+  background: #E9D9D2;
+}
+
+.checkin-placeholder-text {
+  font-size: 30rpx;
+  color: #8d6e63;
+  font-weight: 600;
 }
 
 .soup-image {

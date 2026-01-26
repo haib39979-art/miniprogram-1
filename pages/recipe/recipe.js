@@ -68,10 +68,12 @@ Page({
       camera: 'back',
       success: (res) => {
         const tempFilePath = res.tempFiles[0].tempFilePath
+        const today = new Date().toLocaleDateString()
         this.setData({
           isCheckedIn: true,
           checkInImage: tempFilePath
         })
+        wx.setStorageSync('todayCheckIn', { date: today, imageUrl: tempFilePath })
         
         // Ask for favorite
         wx.showModal({
@@ -102,6 +104,11 @@ Page({
             isCheckedIn: false,
             checkInImage: ''
           })
+          const today = new Date().toLocaleDateString()
+          const stored = wx.getStorageSync('todayCheckIn') || null
+          if (stored && stored.date === today) {
+            wx.removeStorageSync('todayCheckIn')
+          }
           wx.showToast({
             title: '已取消打卡',
             icon: 'none'

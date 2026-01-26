@@ -38,6 +38,13 @@ Page({
         this.setData({
           avatarUrl: tempFilePath
         })
+        const profile = wx.getStorageSync('userProfile') || {}
+        const nextProfile = {
+          ...profile,
+          avatar: tempFilePath
+        }
+        wx.setStorageSync('userProfile', nextProfile)
+        wx.showToast({ title: '已更新头像', icon: 'success' })
       }
     })
   },

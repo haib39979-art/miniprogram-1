@@ -56,8 +56,9 @@
     <!-- Bottom Grid -->
     <view class="bottom-grid">
       <!-- Left Large Image -->
-      <view class="grid-left" bindtap="onChooseGridImage">
-        <image class="soup-image" src="{{customGridImage}}" mode="aspectFill" />
+      <view class="grid-left {{hasTodayCheckIn ? 'has-checkin' : 'no-checkin'}}">
+        <image wx:if="{{hasTodayCheckIn}}" class="soup-image" src="{{todayCheckInImage}}" mode="aspectFill" />
+        <text wx:else class="checkin-placeholder-text">记得吃饭</text>
       </view>
       
       <!-- Right Column -->
