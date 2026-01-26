@@ -51,7 +51,7 @@
     </view>
     <view class="divider"></view>
     <view class="list-item" bindtap="onTapConstitution">
-      <text class="item-text">体质 : 待测试</text>
+      <text class="item-text">体质 : {{userInfo.constitution}}</text>
       <view class="arrow-icon"></view>
     </view>
   </view>

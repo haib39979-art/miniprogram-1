@@ -12,10 +12,10 @@
   <!-- User Profile -->
   <view class="profile-section">
     <view class="avatar-wrap" bindtap="onTapAvatar">
-      <image class="avatar" src="/assets/avatar-me.png" mode="aspectFill" />
+      <image class="avatar" src="{{userInfo.avatar || ''}}" mode="aspectFill" />
     </view>
-    <text class="username">{{userInfo.name}}</text>
-    <text class="userid">id:{{userInfo.id}}</text>
+    <text class="username">{{userInfo.name || '待登录'}}</text>
+    <text class="userid">id:{{userInfo.id || '待登录'}}</text>
   </view>
 
   <!-- Tabs -->
@@ -33,19 +33,25 @@
 
   <!-- Content Area -->
   <scroll-view scroll-y class="content-area" wx:if="{{activeTab === 'personal'}}">
-    <!-- Health Guide Card -->
-    <view class="health-card" bindtap="onTapHealthType">
-      <view class="health-card-left">
-        <view class="health-type">阳虚质</view>
-        <view class="health-subtitle">生活指南</view>
-      </view>
-      <view class="health-card-right">
-        <view class="guide-item" wx:for="{{healthGuide.items}}" wx:key="label">
-          <text class="guide-label">{{item.label}}：</text>
-          <text class="guide-content">{{item.content}}</text>
+    <block wx:if="{{constitutionTested}}">
+      <view class="health-card" bindtap="onTapHealthType">
+        <view class="health-card-left">
+          <view class="health-type">{{healthGuide.type}}</view>
+          <view class="health-subtitle">生活指南</view>
+        </view>
+        <view class="health-card-right">
+          <view class="guide-item" wx:for="{{healthGuide.items}}" wx:key="label">
+            <text class="guide-label">{{item.label}}：</text>
+            <text class="guide-content">{{item.content}}</text>
+          </view>
         </view>
       </view>
-    </view>
+    </block>
+    <block wx:else>
+      <view class="health-card placeholder-card" bindtap="onTapHealthType">
+        <text class="placeholder-text">体质未测试</text>
+      </view>
+    </block>
 
     <!-- Bottom Grid -->
     <view class="bottom-grid">
@@ -93,21 +99,28 @@
       <text class="section-title">我的食谱</text>
     </view>
     <scroll-view scroll-x class="horizontal-scroll" enable-flex>
-      <view class="recipe-card" wx:for="{{collectedRecipes}}" wx:key="id" bindtap="onTapRecipe" data-id="{{item.id}}">
-        <image class="recipe-img" src="{{item.imageUrl}}" mode="aspectFill" />
-        <view class="recipe-info">
-          <view class="recipe-title-row">
-            <text class="recipe-title">{{item.name}}</text>
-            <view class="heart-icon" style="color: #CC7979;">♥</view>
-          </view>
-          <view class="recipe-tags">
-            <view class="tag-row" wx:for="{{item.tags}}" wx:key="*this">
-               <text class="tag-dot">·</text><text>{{item}}</text>
+      <block wx:if="{{collectedRecipes.length > 0}}">
+        <view class="recipe-card" wx:for="{{collectedRecipes}}" wx:key="id" bindtap="onTapRecipe" data-id="{{item.id}}">
+          <image class="recipe-img" src="{{item.imageUrl}}" mode="aspectFill" />
+          <view class="recipe-info">
+            <view class="recipe-title-row">
+              <text class="recipe-title">{{item.name}}</text>
+              <view class="heart-icon" style="color: #CC7979;">♥</view>
             </view>
+            <view class="recipe-tags">
+              <view class="tag-row" wx:for="{{item.tags}}" wx:key="*this">
+                 <text class="tag-dot">·</text><text>{{item}}</text>
+              </view>
+            </view>
+            <view class="recipe-suitable">适宜人群：{{item.suitable}}</view>
           </view>
-          <view class="recipe-suitable">适宜人群：{{item.suitable}}</view>
         </view>
-      </view>
+      </block>
+      <block wx:else>
+        <view class="recipe-card recipe-placeholder">
+          <text class="recipe-placeholder-text">未收藏</text>
+        </view>
+      </block>
     </scroll-view>
 
     <!-- My Herbs Section -->
@@ -115,44 +128,44 @@
       <text class="section-title">我的药材</text>
     </view>
     <scroll-view scroll-x class="horizontal-scroll" enable-flex>
-      <view class="herb-card" wx:for="{{collectedHerbs}}" wx:key="id">
-        <!-- Plant Image -->
-        <image class="herb-img" src="{{item.imageUrl || '/assets/herb-placeholder.png'}}" mode="aspectFit" />
-        
-        <!-- Date Badge -->
-        <view class="herb-date-box">
-           <view class="date-row">
-             <text class="date-day">{{item.day}}</text>
-             <text class="date-month">/{{item.month}}</text>
-           </view>
-           <text class="lunar-date">{{item.lunarDate}}</text>
-           <view class="yi-ji-row">
-             <view class="dot yi"></view>
-             <text class="yi-ji-text">宜 {{item.yi}}</text>
-           </view>
-           <view class="yi-ji-row">
-             <view class="dot ji"></view>
-             <text class="yi-ji-text">忌 {{item.ji}}</text>
-           </view>
-        </view>
-
-        <!-- Content -->
-        <view class="herb-info">
-           <view class="herb-name-row">
-             <text class="herb-name">{{item.name}}</text>
-             <text class="herb-alias">{{item.alias}}</text>
-           </view>
-           
-           <view class="herb-details">
-             <view class="herb-detail-item" wx:for="{{item.details}}" wx:key="label" wx:for-item="detail">
-               <text class="detail-label">【{{detail.label}}】</text>
-               <text class="detail-content">：{{detail.content}}</text>
+      <block wx:if="{{collectedHerbs.length > 0}}">
+        <view class="herb-card" wx:for="{{collectedHerbs}}" wx:key="id">
+          <image class="herb-img" src="{{item.imageUrl || '/assets/herb-placeholder.png'}}" mode="aspectFit" />
+          <view class="herb-date-box">
+             <view class="date-row">
+               <text class="date-day">{{item.day}}</text>
+               <text class="date-month">/{{item.month}}</text>
              </view>
-           </view>
+             <text class="lunar-date">{{item.lunarDate}}</text>
+             <view class="yi-ji-row">
+               <view class="dot yi"></view>
+               <text class="yi-ji-text">宜 {{item.yi}}</text>
+             </view>
+             <view class="yi-ji-row">
+               <view class="dot ji"></view>
+               <text class="yi-ji-text">忌 {{item.ji}}</text>
+             </view>
+          </view>
+          <view class="herb-info">
+             <view class="herb-name-row">
+               <text class="herb-name">{{item.name}}</text>
+               <text class="herb-alias">{{item.alias}}</text>
+             </view>
+             <view class="herb-details">
+               <view class="herb-detail-item" wx:for="{{item.details}}" wx:key="label" wx:for-item="detail">
+                 <text class="detail-label">【{{detail.label}}】</text>
+                 <text class="detail-content">：{{detail.content}}</text>
+               </view>
+             </view>
+          </view>
+           <view class="heart-icon-herb">♡</view>
         </view>
-
-         <view class="heart-icon-herb">♡</view>
-      </view>
+      </block>
+      <block wx:else>
+        <view class="herb-card herb-placeholder">
+          <text class="herb-placeholder-text">未收藏</text>
+        </view>
+      </block>
     </scroll-view>
 
     <!-- Padding for tabbar -->

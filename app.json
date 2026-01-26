@@ -12,6 +12,7 @@
     "pages/calendar/calendar",
     "pages/anniversary/anniversary",
     "pages/me/me",
+    "pages/tizhi-test/tizhi-test",
     "pages/logs/logs"
   ],
   "subpackages": [

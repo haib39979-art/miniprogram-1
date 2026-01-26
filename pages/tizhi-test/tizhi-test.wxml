@@ -1,0 +1,60 @@
+<view class="container">
+  <block wx:if="{{!result}}">
+    <view class="header">
+      <text class="title">AI 中医体质辨识</text>
+      <text class="subtitle">请根据您近期的实际感受回答下列问题</text>
+    </view>
+
+    <scroll-view scroll-y class="question-list">
+      <block wx:for="{{questions}}" wx:key="id">
+        <view class="question-item">
+          <text class="q-text">{{index + 1}}. {{item.text}}</text>
+          <view class="options">
+            <view 
+              class="option {{answers[item.id] === 'yes' ? 'selected' : ''}}" 
+              bindtap="selectOption" 
+              data-qid="{{item.id}}" 
+              data-val="yes">是</view>
+            <view 
+              class="option {{answers[item.id] === 'sometimes' ? 'selected' : ''}}" 
+              bindtap="selectOption" 
+              data-qid="{{item.id}}" 
+              data-val="sometimes">有时</view>
+            <view 
+              class="option {{answers[item.id] === 'no' ? 'selected' : ''}}" 
+              bindtap="selectOption" 
+              data-qid="{{item.id}}" 
+              data-val="no">否</view>
+          </view>
+        </view>
+      </block>
+      <view class="spacer" style="height: 100rpx;"></view>
+    </scroll-view>
+
+    <view class="footer-btn">
+      <button class="submit-btn" bindtap="submitTest" disabled="{{loading}}">
+        {{loading ? 'AI 正在分析...' : '提交测试'}}
+      </button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="result-container">
+      <view class="result-card">
+        <view class="result-header">
+          <text class="result-label">经 AI 辨识，您的体质为</text>
+          <text class="result-type">{{result.type}}</text>
+        </view>
+        <view class="result-section">
+          <text class="section-title">体质特征</text>
+          <text class="section-content">{{result.description}}</text>
+        </view>
+        <view class="result-section">
+          <text class="section-title">调理建议</text>
+          <text class="section-content">{{result.advice}}</text>
+        </view>
+      </view>
+      <button class="finish-btn" bindtap="finishTest">完成并更新资料</button>
+    </view>
+  </block>
+</view>

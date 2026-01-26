@@ -12,7 +12,17 @@ Page({
     }
   },
   onLoad() {
-    // Usually fetch user data here
+    this.loadUserProfile()
+  },
+  onShow() {
+    this.loadUserProfile()
+  },
+  loadUserProfile() {
+    const userProfile = wx.getStorageSync('userProfile') || {}
+    const constitution = userProfile.constitution || '待测试'
+    this.setData({
+      'userInfo.constitution': constitution
+    })
   },
   onTapName() { console.log('Tap Name'); },
   onTapId() { console.log('Tap ID'); },
@@ -21,5 +31,9 @@ Page({
   onTapBirthday() { console.log('Tap Birthday'); },
   onTapRegion() { console.log('Tap Region'); },
   onTapOccupation() { console.log('Tap Occupation'); },
-  onTapConstitution() { console.log('Tap Constitution'); }
+  onTapConstitution() { 
+    wx.navigateTo({
+      url: '/pages/tizhi-test/tizhi-test'
+    })
+  }
 })

@@ -47,7 +47,7 @@
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 16rpx;
-  background: #f0f0f0;
+  background: #ffffff;
 }
 
 .avatar {
@@ -91,9 +91,23 @@
 .health-card {
   background: #f5efe9; /* Beige background */
   border-radius: 24rpx;
-  padding: 32rpx;
+  padding: 28rpx;
   display: flex;
-  margin-bottom: 30rpx;
+  margin-bottom: 16rpx;
+  min-height: 300rpx;
+}
+
+.placeholder-card {
+  justify-content: center;
+  align-items: center;
+  min-height: 300rpx;
+}
+
+.placeholder-text {
+  font-size: 40rpx;
+  color: #5d4037;
+  font-weight: 600;
+  text-align: center;
 }
 
 .health-card-left {
@@ -396,6 +410,14 @@
   position: relative;
   align-items: center;
 }
+.recipe-placeholder {
+  justify-content: center;
+}
+.recipe-placeholder-text {
+  font-size: 30rpx;
+  color: #8D6E63;
+  font-weight: 600;
+}
 
 .recipe-img {
   width: 212rpx;
@@ -467,6 +489,16 @@
   padding: 24rpx;
   box-sizing: border-box;
   vertical-align: top; /* Alignment fix for inline-block */
+}
+.herb-placeholder {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.herb-placeholder-text {
+  font-size: 30rpx;
+  color: #5D4037;
+  font-weight: 600;
 }
 
 .herb-img {

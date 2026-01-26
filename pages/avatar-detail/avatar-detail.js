@@ -17,7 +17,11 @@ Page({
 
     if (options.avatar) {
       this.setData({ avatarUrl: options.avatar })
+      return
     }
+    const profile = wx.getStorageSync('userProfile') || {}
+    const avatar = profile && profile.avatar ? profile.avatar : ''
+    this.setData({ avatarUrl: avatar || '/assets/avatar-me.png' })
   },
 
   onClose() {

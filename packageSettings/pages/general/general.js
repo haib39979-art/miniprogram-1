@@ -1,4 +1,7 @@
 Page({
   data: {},
-  onLoad() {}
+  onLoad() {},
+  onTapItem(e) {
+    wx.showToast({ title: '功能开发中', icon: 'none' })
+  }
 })

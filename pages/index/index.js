@@ -47,6 +47,79 @@ Page({
     this.checkIfFavorite()
   },
 
+  testVision() {
+    wx.showLoading({ title: 'Analyzing...', mask: true });
+    const imageUrl = 'https://ark-project.tos-cn-beijing.volces.com/doc_image/ark_demo_img_1.png'; // Demo image
+    const prompt = '你看见了什么？';
+
+    aiService.analyzeImage(imageUrl, prompt).then(result => {
+      console.log('Analysis Result:', result);
+      wx.hideLoading();
+      wx.showModal({
+        title: 'Vision API Result',
+        content: typeof result === 'string' ? result : JSON.stringify(result),
+        showCancel: false
+      });
+    }).catch(err => {
+      console.error('Analysis failed:', err);
+      wx.hideLoading();
+      wx.showToast({
+        title: 'Vision Failed: ' + (err.message || 'Unknown error'),
+        icon: 'none',
+        duration: 3000
+      });
+    });
+  },
+
+  testDailyUpdate() {
+    wx.showLoading({ title: 'AI Generating Herb...', mask: true });
+    
+    // Get current herb name to avoid duplicate
+    const currentName = this.data.herb ? this.data.herb.name : '';
+
+    aiService.generateDailyHerb(currentName).then(newHerb => {
+      console.log('New Herb Data:', newHerb);
+      
+      // Update data
+      this.setData({
+        herb: {
+          name: newHerb.name,
+          alias: newHerb.alias,
+          imageUrl: newHerb.imageUrl,
+          distribution: newHerb.distribution,
+          feature: newHerb.feature,
+          effect: newHerb.effect,
+          usage: newHerb.usage
+        },
+        daily: {
+          yi: newHerb.yi,
+          ji: newHerb.ji
+        },
+        isFavorite: false // Reset favorite status for new herb
+      });
+
+      // Save to storage for persistence (optional, simulates daily update)
+      wx.setStorageSync('dailyHerb', newHerb);
+      const today = new Date().toDateString();
+      wx.setStorageSync('lastUpdateDate', today);
+
+      wx.hideLoading();
+      wx.showToast({
+        title: 'Update Success',
+        icon: 'success'
+      });
+
+    }).catch(err => {
+      console.error('Daily Update Failed:', err);
+      wx.hideLoading();
+      wx.showModal({
+        title: 'Generation Failed',
+        content: err.message || 'Unknown error',
+        showCancel: false
+      });
+    });
+  },
+
   onShow() {
     console.log('Index Page onShow triggered')
     this.loadTodos()
